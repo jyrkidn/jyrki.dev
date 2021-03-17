@@ -1,13 +1,16 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
-class Page extends Model
+class Post extends Model
 {
     use HasFactory;
+    use HasSlug;
 
     /**
      * The attributes that are mass assignable.
@@ -16,9 +19,12 @@ class Page extends Model
      */
     protected $fillable = [
         'title',
-        'slug',
+        'type',
+        'redirect_url',
+        'intro',
         'content',
         'published_at',
+        'slug',
         'is_online',
     ];
 
@@ -29,7 +35,17 @@ class Page extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'published_at' => 'timestamp',
+        'published_at' => 'datetime',
         'is_online' => 'boolean',
     ];
+
+    /**
+     * Get the options for generating the slug.
+     */
+    public function getSlugOptions() : SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('title')
+            ->saveSlugsTo('slug');
+    }
 }

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('', [PostController::class, 'index']);
+Route::get('/post/{post}', [PostController::class, 'show']);
 
 
-Route::resource('page', 'PageController')->only('show');
+Route::get('/{page}', [PageController::class, 'show']);

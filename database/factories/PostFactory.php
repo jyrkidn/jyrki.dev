@@ -4,16 +4,16 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use App\Models\Page;
+use App\Models\Post;
 
-class PageFactory extends Factory
+class PostFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Page::class;
+    protected $model = Post::class;
 
     /**
      * Define the model's default state.
@@ -24,9 +24,12 @@ class PageFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence(4),
-            'slug' => $this->faker->slug,
+            'type' => $this->faker->word,
+            'redirect_url' => $this->faker->word,
+            'intro' => $this->faker->text,
             'content' => $this->faker->paragraphs(3, true),
             'published_at' => $this->faker->dateTime(),
+            'slug' => $this->faker->slug,
             'is_online' => $this->faker->boolean,
         ];
     }
