@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -13,8 +14,18 @@ class PostController extends Controller
      */
     public function index(Request $request)
     {
-        $posts = Post::all();
-        return view('post.index', compact('posts'));
+        $searchQuery = $request->query('q');
+
+        return view('post.index', [
+            'posts' => Post::online()
+                ->when($searchQuery, function (Builder $query) use ($searchQuery) {
+                    return $query->search($searchQuery);
+                })
+                ->orderBy('published_at', 'desc')
+                ->simplePaginate(10)
+                ->appends(['q' => $searchQuery]),
+            'searchQuery' => $searchQuery,
+        ]);
     }
 
     /**

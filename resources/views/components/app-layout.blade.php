@@ -40,7 +40,7 @@
                 </div>
 
                 <div class="">
-                    <form action="/search">
+                    <form method="GET" action="{{ route('post.index') }}">
                         <label for="search-input" class="sr-only">
                             Search
                         </label>

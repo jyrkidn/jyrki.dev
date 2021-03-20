@@ -1,4 +1,20 @@
 <x-app-layout>
+    @if ($searchQuery)
+        <div class="flex flex-col mb-8 gap-y-2">
+            <div>
+                Searching for
+                <span class="rounded-full py-1 px-2 bg-blue-900 text-gray-200 dark:bg-gray-200 dark:text-blue-900">
+                    {{ $searchQuery }}
+                </span>
+            </div>
+            <a
+                class="underline"
+                href="{{ route('post.index') }}"
+            >
+                View all posts
+            </a>
+        </div>
+    @endif
     @foreach ($posts as $post)
         <article class="block mb-8">
             <h2 class="inline">
@@ -13,7 +29,7 @@
                 <time
                     datetime="{{ $post->published_at->format('Y-m-d') }}"
                 >
-                    {{ $post->published_at }}
+                    {{ $post->published_at->format('jS \o\f F, Y') }}
                 </time>
             @endif
             <p>
@@ -21,4 +37,6 @@
             </p>
         </article>
     @endforeach
+
+    {{ $posts->links() }}
 </x-app-layout>
