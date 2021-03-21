@@ -35,6 +35,7 @@ class PostController extends Controller
      */
     public function show(Request $request, Post $post)
     {
+        // TODO keep in account the online scope
         return view('post.show', compact('post'));
     }
 }

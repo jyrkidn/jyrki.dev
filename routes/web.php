@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
+use App\Http\Livewire\Tool;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,9 +18,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('', [PostController::class, 'index'])
     ->name('post.index');
-Route::get('/post/{post}', [PostController::class, 'show'])
+Route::get('/post/{post:slug}', [PostController::class, 'show'])
     ->name('post.show');
 
+Route::get('/tool', Tool::class);
 
-Route::get('/{page}', [PageController::class, 'show'])
+
+Route::get('/{page:slug}', [PageController::class, 'show'])
     ->name('page.show');

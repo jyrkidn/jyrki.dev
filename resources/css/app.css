@@ -1,4 +1,12 @@
+@import 'highlight.js/styles/shades-of-purple';
+
 /* ./resources/css/app.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@media (min-width: 1024px) {
+  .lg\:h-90 {
+    height: 90%;
+  }
+}

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Mtownsend\ReadTime\ReadTime;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
@@ -70,5 +71,32 @@ class Post extends Model
             ->where('title', 'LIKE', "%{$search}%")
             ->orWhere('intro', 'LIKE', "%{$search}%")
             ->orWhere('content', 'LIKE', "%{$search}%");
+    }
+
+    public function getUrlAttribute()
+    {
+        return route('post.show', $this);
+    }
+
+    public function getReadTimeAttribute()
+    {
+        return (new ReadTime($this->content))
+            ->abbreviated()
+            ->get();
+    }
+
+    /**
+     * Retrieve the model for a bound value.
+     *
+     * @param  mixed  $value
+     * @param  string|null  $field
+     * @return \Illuminate\Database\Eloquent\Model|null
+     */
+    public function resolveRouteBinding($value, $field = null)
+    {
+        return $this
+            ->online()
+            ->where($field ?: 'id', $value)
+            ->firstOrFail();
     }
 }
