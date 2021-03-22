@@ -9,7 +9,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    {{ vite_assets() }}
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="og:type" content="website">
@@ -39,7 +39,7 @@
                     @endisset
                 </div>
 
-                <div class="">
+                <div>
                     <form method="GET" action="{{ route('post.index') }}">
                         <label for="search-input" class="sr-only">
                             Search
