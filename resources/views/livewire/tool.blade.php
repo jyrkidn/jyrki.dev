@@ -15,14 +15,14 @@
             id="minified"
             cols="30"
             rows="10"
-            class="resize-none flex-grow bg-dark-purple focus:outline-none text-text-yellow block w-full lg:w-5/12 appearance-none leading-normal"
+            class="resize-none flex-grow focus:outline-none block w-full lg:w-5/12 appearance-none leading-normal"
         ></textarea>
 
         <div class="flex-grow-0 flex justify-center flex-col w-full lg:w-2/12 lg:px-2">
             @foreach ($converts as $key => $convert)
                 <button
                     type="button"
-                    class="bg-dark-purple hover:text-light-purple text-text-yellow font-bold py-2 px-4 my-2 inline-flex items-center justify-center"
+                    class="font-bold py-2 px-4 my-2 inline-flex items-center justify-center"
                     wire:click="convert('{{ $key }}')"
                 >
                     <span>{{ $convert::name() }}</span>
