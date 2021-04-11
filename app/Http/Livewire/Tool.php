@@ -32,6 +32,10 @@ class Tool extends Component
     {
         $this->error = '';
 
+        if (! $this->minified) {
+            return $this->error = 'Please provide some input';
+        }
+
         $this->language = $this->converts[$convertClass]::mode();
         try {
             $hl = new Highlighter();
