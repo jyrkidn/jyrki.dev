@@ -10,7 +10,7 @@
         "tailwindcss": "^2.1.1"
     },
     "dependencies": {
-        "highlight.js": "^10.7.2",
+        "shiki": "^0.9.5",
         "vite": "^2.1.5"
     }
 }
