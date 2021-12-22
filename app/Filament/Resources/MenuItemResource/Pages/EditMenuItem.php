@@ -7,5 +7,5 @@ use Filament\Resources\Pages\EditRecord;
 
 class EditMenuItem extends EditRecord
 {
-    public static $resource = MenuItemResource::class;
+    public static string $resource = MenuItemResource::class;
 }

@@ -7,5 +7,5 @@ use Filament\Resources\Pages\ListRecords;
 
 class ListMenuItems extends ListRecords
 {
-    public static $resource = MenuItemResource::class;
+    public static string $resource = MenuItemResource::class;
 }

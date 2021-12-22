@@ -5,27 +5,28 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\PostResource\Pages;
 use App\Filament\Resources\PostResource\RelationManagers;
 use App\Filament\Roles;
-use Filament\Resources\Forms\Components;
-use Filament\Resources\Forms\Components\Checkbox;
-use Filament\Resources\Forms\Components\DateTimePicker;
-use Filament\Resources\Forms\Components\Group;
-use Filament\Resources\Forms\Components\RichEditor;
-use Filament\Resources\Forms\Components\Select;
-use Filament\Resources\Forms\Components\Textarea;
-use Filament\Resources\Forms\Components\TextInput;
-use Filament\Resources\Forms\Form;
+use Closure;
+use Filament\Forms\Components;
+use Filament\Forms\Components\Checkbox;
+use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\Group;
+use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
+use Filament\Resources\Form;
 use Filament\Resources\Resource;
-use Filament\Resources\Tables\Columns;
-use Filament\Resources\Tables\Columns\Boolean;
-use Filament\Resources\Tables\Columns\Text;
-use Filament\Resources\Tables\Filter;
-use Filament\Resources\Tables\Table;
+use Filament\Resources\Table;
+use Filament\Tables\Columns;
+use Filament\Tables\Columns\BooleanColumn;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filter;
 
 class PostResource extends Resource
 {
     public static $icon = 'heroicon-o-collection';
 
-    public static function form(Form $form)
+    public static function form(Form $form): Form
     {
         return $form
             ->schema([
@@ -44,28 +45,28 @@ class PostResource extends Resource
                         'redirect' => 'Redirect',
                         'article' => 'Article',
                     ])
-                    ->dependable()
+                    ->reactive()
                     ->required(),
 
                 Group::make([
                     TextInput::make('redirect_url')
                         ->required(),
-                ])->when(fn ($record) => $record->type === 'redirect'),
+                ])->hidden(fn (Closure $get) => $get('type') !== 'redirect'),
 
                 Group::make([
                     RichEditor::make('content')
                         ->required(),
-                ])->when(fn ($record) => $record->type === 'article'),
+                ])->hidden(fn (Closure $get) => $get('type') !== 'article'),
             ]);
     }
 
-    public static function table(Table $table)
+    public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                Text::make('title'),
-                Text::make('slug'),
-                Boolean::make('is_online'),
+                TextColumn::make('title'),
+                TextColumn::make('slug'),
+                BooleanColumn::make('is_online'),
             ])
             ->filters([
                 //

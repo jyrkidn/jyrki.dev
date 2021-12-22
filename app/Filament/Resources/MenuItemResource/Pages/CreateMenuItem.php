@@ -7,5 +7,5 @@ use Filament\Resources\Pages\CreateRecord;
 
 class CreateMenuItem extends CreateRecord
 {
-    public static $resource = MenuItemResource::class;
+    public static string $resource = MenuItemResource::class;
 }

@@ -7,5 +7,5 @@ use Filament\Resources\Pages\EditRecord;
 
 class EditPost extends EditRecord
 {
-    public static $resource = PostResource::class;
+    public static string $resource = PostResource::class;
 }
