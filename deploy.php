@@ -8,6 +8,7 @@ require 'recipe/laravel.php';
 set('application', 'jyrki.dev');
 set('deploy_path', '/var/www/{{application}}');
 set('repository', 'git@github.com:jyrkidn/jyrki.dev.git');
+set('branch', 'main');
 
 add('shared_files', []);
 add('shared_dirs', []);
@@ -20,9 +21,14 @@ host('jyrki.dev')
 
 // Tasks
 
-task('build', function () {
+task('npm:build', function () {
     cd('{{release_path}}');
-    run('npm run build');
+    run('npm run production');
+});
+
+task('npm:install', function () {
+    cd('{{release_path}}');
+    run('npm install');
 });
 
 after('deploy:failed', 'deploy:unlock');
@@ -39,4 +45,6 @@ task('deploy', [
     'artisan:config:cache',
     'artisan:migrate',
     'deploy:publish',
+    'npm:install',
+    'npm:build',
 ]);
