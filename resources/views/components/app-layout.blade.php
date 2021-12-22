@@ -9,21 +9,20 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    {{ vite_assets() }}
+    @vite
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="og:type" content="website">
     <meta property="og:title" content="{{ config('app.name') }}" />
     <meta name="description" content="Hi, I'm a lead back-end developer at Code d'Or">
     <meta property="og:description" content="Hi, I'm a lead back-end developer at Code d'Or">
-    <!-- <meta property="og:image" content="[http://example.com/social.jpg]" /> -->
     <meta property="og:url" content="{{ request()->url() }}" />
     <meta property="og:locale" content="{{ app()->getLocale() }}" />
 </head>
 <body class="dark:bg-blue-900 dark:text-gray-200 bg-gray-200 text-blue-900">
     <header>
         <nav class="flex items-center justify-between flex-wrap p-3 shadow">
-            <div class="flex items-center flex-shrink-0 mr-3">
+            <div class="flex items-center shrink-0 mr-3">
                 <a href="/" class="font-semibold text-xl tracking-tight">
                     {{ config('app.name') }}
                 </a>

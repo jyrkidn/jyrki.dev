@@ -18,7 +18,7 @@
             class="resize-none flex-grow focus:outline-none block w-full lg:w-5/12 appearance-none leading-normal"
         ></textarea>
 
-        <div class="flex-grow-0 flex justify-center flex-col w-full lg:w-2/12 lg:px-2">
+        <div class="grow-0 flex justify-center flex-col w-full lg:w-2/12 lg:px-2">
             @foreach ($converts as $key => $convert)
                 <button
                     type="button"
