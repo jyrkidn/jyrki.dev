@@ -80,12 +80,12 @@ class PostResource extends Resource
         ];
     }
 
-    public static function routes()
+    public static function getPages(): array
     {
         return [
-            Pages\ListPosts::routeTo('/', 'index'),
-            Pages\CreatePost::routeTo('/create', 'create'),
-            Pages\EditPost::routeTo('/{record}/edit', 'edit'),
+            'index' => Pages\ListPosts::route('/'),
+            'create' => Pages\CreatePost::route('/create'),
+            'edit' => Pages\EditPost::route('/{record}/edit'),
         ];
     }
 }

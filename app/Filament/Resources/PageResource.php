@@ -57,12 +57,12 @@ class PageResource extends Resource
         ];
     }
 
-    public static function routes()
+    public static function getPages(): array
     {
         return [
-            Pages\ListPages::routeTo('/', 'index'),
-            Pages\CreatePage::routeTo('/create', 'create'),
-            Pages\EditPage::routeTo('/{record}/edit', 'edit'),
+            'index' => Pages\ListPages::route('/'),
+            'create' => Pages\CreatePage::route('/create'),
+            'edit' => Pages\EditPage::route('/{record}/edit'),
         ];
     }
 }

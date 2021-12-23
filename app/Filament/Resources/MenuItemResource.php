@@ -50,12 +50,12 @@ class MenuItemResource extends Resource
         ];
     }
 
-    public static function routes()
+    public static function getPages(): array
     {
         return [
-            Pages\ListMenuItems::routeTo('/', 'index'),
-            Pages\CreateMenuItem::routeTo('/create', 'create'),
-            Pages\EditMenuItem::routeTo('/{record}/edit', 'edit'),
+            'index' => Pages\ListMenuItems::route('/'),
+            'create' => Pages\CreateMenuItem::route('/create'),
+            'edit' => Pages\EditMenuItem::route('/{record}/edit'),
         ];
     }
 }
