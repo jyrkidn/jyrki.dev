@@ -23,7 +23,7 @@ host('jyrki.dev')
 
 task('npm:build', function () {
     cd('{{release_path}}');
-    run('npm run production');
+    run('npm run build');
 });
 
 task('npm:install', function () {
