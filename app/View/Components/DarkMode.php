@@ -2,10 +2,9 @@
 
 namespace App\View\Components;
 
-use App\Models\MenuItem;
 use Illuminate\View\Component;
 
-class AppLayout extends Component
+class DarkMode extends Component
 {
     /**
      * Create a new component instance.
@@ -24,8 +23,6 @@ class AppLayout extends Component
      */
     public function render()
     {
-        return view('components.app-layout', [
-            'menuItems' => MenuItem::all(),
-        ]);
+        return view('components.dark-mode');
     }
 }

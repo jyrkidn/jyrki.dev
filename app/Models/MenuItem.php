@@ -27,4 +27,9 @@ class MenuItem extends Model
     protected $casts = [
         'id' => 'integer',
     ];
+
+    public function isActive()
+    {
+        return request()->url() === $this->link;
+    }
 }

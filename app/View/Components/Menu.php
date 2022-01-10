@@ -2,19 +2,19 @@
 
 namespace App\View\Components;
 
-use App\Models\MenuItem;
+use Illuminate\Support\Collection;
 use Illuminate\View\Component;
 
-class AppLayout extends Component
+class Menu extends Component
 {
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
-    {
-        //
+    public function __construct(
+        public Collection $menuItems
+    ) {
     }
 
     /**
@@ -24,8 +24,6 @@ class AppLayout extends Component
      */
     public function render()
     {
-        return view('components.app-layout', [
-            'menuItems' => MenuItem::all(),
-        ]);
+        return view('components.menu');
     }
 }
