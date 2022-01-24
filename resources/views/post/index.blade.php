@@ -25,11 +25,16 @@
                     {{ $post->title }}
                 </a>
             </h2>
+            @if ($post->is_redirect)
+                <span class="text-sm">
+                    ({{ $post->redirect_url_host }})
+                </span>
+            @endif
             @if ($post->published_at)
                 <time
                     datetime="{{ $post->published_at->format('Y-m-d') }}"
                 >
-                    {{ $post->published_at->format('jS \o\f F, Y') }}
+                    - {{ $post->published_at->format('d-m-Y') }}
                 </time>
             @endif
             <p>

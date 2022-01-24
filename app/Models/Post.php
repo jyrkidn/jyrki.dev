@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\PostType;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -39,6 +40,7 @@ class Post extends Model
         'id' => 'integer',
         'published_at' => 'datetime',
         'is_online' => 'boolean',
+        'type' => PostType::class,
     ];
 
     /**
@@ -75,7 +77,25 @@ class Post extends Model
 
     public function getUrlAttribute()
     {
+        if ($this->is_redirect) {
+            return $this->redirect_url;
+        }
+
         return route('post.show', $this);
+    }
+
+    public function getRedirectUrlHostAttribute()
+    {
+        if (! $this->is_redirect) {
+            return null;
+        }
+
+        return parse_url($this->redirect_url, PHP_URL_HOST);
+    }
+
+    public function getIsRedirectAttribute()
+    {
+        return $this->type === PostType::REDIRECT;
     }
 
     public function getReadTimeAttribute()

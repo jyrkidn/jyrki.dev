@@ -2,11 +2,9 @@
 
 namespace App\Filament\Resources;
 
+use App\Enums\PostType;
 use App\Filament\Resources\PostResource\Pages;
-use App\Filament\Resources\PostResource\RelationManagers;
-use App\Filament\Roles;
 use Closure;
-use Filament\Forms\Components;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Group;
@@ -17,10 +15,8 @@ use Filament\Forms\Components\TextInput;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
-use Filament\Tables\Columns;
 use Filament\Tables\Columns\BooleanColumn;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Filter;
 
 class PostResource extends Resource
 {
@@ -41,10 +37,10 @@ class PostResource extends Resource
 
                 Select::make('type')
                     ->placeholder('Select a type')
-                    ->options([
-                        'redirect' => 'Redirect',
-                        'article' => 'Article',
-                    ])
+                    ->options(array_map(
+                        fn(PostType $postType) => $postType->type(),
+                        PostType::cases()
+                    ))
                     ->reactive()
                     ->required(),
 

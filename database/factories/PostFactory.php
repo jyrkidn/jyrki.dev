@@ -2,9 +2,9 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
+use App\Enums\PostType;
 use App\Models\Post;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class PostFactory extends Factory
 {
@@ -24,8 +24,8 @@ class PostFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence(4),
-            'type' => $this->faker->word,
-            'redirect_url' => $this->faker->word,
+            'type' => collect(PostType::cases())->random()->value,
+            'redirect_url' => $this->faker->url,
             'intro' => $this->faker->text,
             'content' => $this->faker->paragraphs(3, true),
             'published_at' => $this->faker->dateTime(),
