@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFilamentPasswordResetsTable extends Migration
+return new class extends Migration
 {
     public function up(): void
     {
@@ -19,4 +19,4 @@ class CreateFilamentPasswordResetsTable extends Migration
     {
         Schema::dropIfExists('filament_password_resets');
     }
-}
+};

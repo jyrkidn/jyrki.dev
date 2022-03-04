@@ -37,22 +37,28 @@ class PostResource extends Resource
 
                 Select::make('type')
                     ->placeholder('Select a type')
-                    ->options(array_map(
-                        fn(PostType $postType) => $postType->type(),
-                        PostType::cases()
-                    ))
+                    ->options(
+                        collect(PostType::cases())
+                            ->mapWithKeys(function (PostType $postType) {
+                                return [$postType->value => $postType->type()];
+                            })
+                    )
                     ->reactive()
                     ->required(),
 
                 Group::make([
                     TextInput::make('redirect_url')
                         ->required(),
-                ])->hidden(fn (Closure $get) => $get('type') !== 'redirect'),
+                ])
+                    ->hidden(fn (Closure $get) => $get('type') !== 'redirect')
+                    ->columnSpan(2),
 
                 Group::make([
                     RichEditor::make('content')
                         ->required(),
-                ])->hidden(fn (Closure $get) => $get('type') !== 'article'),
+                ])
+                    ->hidden(fn (Closure $get) => $get('type') !== 'article')
+                    ->columnSpan(2),
             ]);
     }
 

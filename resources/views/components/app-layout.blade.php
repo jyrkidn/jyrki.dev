@@ -43,7 +43,7 @@
         </div>
     </header>
     <div class="h-1 w-full bg-gradient-to-r from-purple-700 dark:from-purple-500 via-yellow-500 dark:via-yellow-500 to-purple-700 dark:to-purple-500"></div>
-    <div class="container mx-auto px-5 lg:px-0 my-8 {{ isset($isCenter) ? 'flex justify-center' : '' }}">
+    <div class="container mx-auto px-5 my-8 {{ isset($isCenter) ? 'flex justify-center' : '' }}">
         {{ $slot }}
     </div>
 </body>
