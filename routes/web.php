@@ -24,6 +24,6 @@ Route::get('/post/{post:slug}', [PostController::class, 'show'])
 Route::get('/tool', Tool::class);
 
 
-// Route::get('/{page:slug}', [PageController::class, 'show'])
-//     ->name('page.show')
-//     ->where('page:slug', '^((?!admin).)*$');
+Route::get('/{page:slug}', [PageController::class, 'show'])
+    ->name('page.show')
+    ->where('page:slug', '^((?!admin).)*$');
