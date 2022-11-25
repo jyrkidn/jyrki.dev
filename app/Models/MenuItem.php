@@ -30,6 +30,6 @@ class MenuItem extends Model
 
     public function isActive()
     {
-        return request()->url() === $this->link;
+        return request()->getPathInfo() === $this->link;
     }
 }
