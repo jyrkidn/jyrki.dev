@@ -9,7 +9,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    @vite
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="og:type" content="website">

@@ -1,5 +1,11 @@
-import { defineConfig } from "laravel-vite";
-import tailwind from "tailwindcss";
-import autoprefixer from "autoprefixer";
+import { defineConfig } from 'vite';
+import laravel from 'laravel-vite-plugin';
 
-export default defineConfig().withPostCSS([tailwind, autoprefixer]);
+export default defineConfig({
+    plugins: [
+        laravel({
+            input: ['resources/css/app.css', 'resources/js/app.js'],
+            refresh: true,
+        }),
+    ],
+});

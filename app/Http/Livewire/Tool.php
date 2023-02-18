@@ -7,7 +7,6 @@ use App\Converts\Json;
 use App\Converts\Unserialize;
 use Livewire\Component;
 use Throwable;
-use Highlight\Highlighter;
 use Spatie\ShikiPhp\Shiki;
 
 class Tool extends Component

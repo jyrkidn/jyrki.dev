@@ -23,6 +23,8 @@ Route::get('/post/{post:slug}', [PostController::class, 'show'])
 
 Route::get('/tool', Tool::class);
 
+Route::view('/resume', 'resume');
+
 
 Route::get('/{page:slug}', [PageController::class, 'show'])
     ->name('page.show')
