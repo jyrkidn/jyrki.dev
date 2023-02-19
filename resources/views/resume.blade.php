@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Resume</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/js/app.js'])
 </head>
 <body>
     <div>
@@ -34,28 +34,28 @@
                         <span class="ml-2.5">Contact</span>
                     </h2>
                     <div class="h-px bg-gradient-to-r from-zinc-200/0 via-zinc-200 to-zinc-200/0 lg:hidden"></div>
-                    <ul role="list" class="mt-4 flex justify-center gap-10 text-base font-medium leading-7 text-zinc-700 sm:gap-8 lg:flex-col lg:gap-4">
+                    <ul role="list" class="mt-4 flex justify-center gap-10 text-sm font-medium leading-7 text-zinc-700 sm:gap-8 lg:flex-col lg:gap-4">
                         <li class="flex">
                             <a class="group flex items-center" aria-label="E-mail" href="mailto:me@jyrki.dev">
-                                <x-lineawesome-mail-bulk-solid class="h-8 w-8 fill-zinc-400" />
+                                <x-lineawesome-mail-bulk-solid class="h-5 w-5 fill-zinc-400" />
                                 <span class="hidden sm:ml-3 sm:block">me@jyrki.dev</span>
                             </a>
                         </li>
                         <li class="flex">
                             <a class="group flex items-center" aria-label="Twitter" href="https://twitter.com/jyrkidn">
-                                <x-lineawesome-twitter class="h-8 w-8 fill-zinc-400" />
+                                <x-lineawesome-twitter class="h-5 w-5 fill-zinc-400" />
                                 <span class="hidden sm:ml-3 sm:block">@jyrkidn</span>
                             </a>
                         </li>
                         <li class="flex">
                             <a class="group flex items-center" aria-label="LinkedIn" href="https://www.linkedin.com/in/jyrki-de-neve">
-                                <x-lineawesome-linkedin-in class="h-8 w-8 fill-zinc-400" />
+                                <x-lineawesome-linkedin-in class="h-5 w-5 fill-zinc-400" />
                                 <span class="hidden sm:ml-3 sm:block">jyrki-de-neve</span>
                             </a>
                         </li>
                         <li class="flex">
                             <a class="group flex items-center" aria-label="LinkedIn" href="https://jyrki.dev">
-                                <x-lineawesome-globe-solid class="h-8 w-8 fill-zinc-400" />
+                                <x-lineawesome-globe-solid class="h-5 w-5 fill-zinc-400" />
                                 <span class="hidden sm:ml-3 sm:block">jyrki.dev</span>
                             </a>
                         </li>
@@ -110,30 +110,77 @@
                             <div class="lg:px-8">
                                 <div class="lg:max-w-4xl">
                                     <div class="mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:px-0">
-                                        <span class="bg-purple-700 px-3 py-1 rounded-full">Laravel >6</span>
-                                        <span class="bg-purple-700 px-3 py-1 rounded-full">CakePHP 2</span>
-                                        <span class="bg-purple-700 px-3 py-1 rounded-full">PestPHP</span>
-                                        <span class="bg-purple-700 px-3 py-1 rounded-full">PHPUnit</span>
-                                        <span class="bg-purple-700 px-3 py-1 rounded-full">Cypress</span>
-                                        <span class="bg-purple-700 px-3 py-1 rounded-full">Jest</span>
-                                        <span class="bg-purple-700 px-3 py-1 rounded-full">Javascript</span>
-                                        <span class="bg-purple-700 px-3 py-1 rounded-full">Vue</span>
-                                        <span class="bg-purple-700 px-3 py-1 rounded-full">Bootstrap</span>
-                                        <span class="bg-purple-700 px-3 py-1 rounded-full">Tailwind</span>
-                                        <span class="bg-purple-700 px-3 py-1 rounded-full">MySQL</span>
-                                        <span class="bg-purple-700 px-3 py-1 rounded-full">MeiliSearch</span>
-                                        <span class="bg-purple-700 px-3 py-1 rounded-full">Algolia</span>
-                                        <span class="bg-purple-700 px-3 py-1 rounded-full">Docker</span>
-                                        <span class="bg-purple-700 px-3 py-1 rounded-full">Git</span>
-                                        <span class="bg-purple-700 px-3 py-1 rounded-full">Linux</span>
-                                        <span class="bg-purple-700 px-3 py-1 rounded-full">REST</span>
-                                        <span class="bg-purple-700 px-3 py-1 rounded-full">Jira/Confluence</span>
-                                        <span class="bg-purple-700 px-3 py-1 rounded-full">Office 365</span>
-                                        <span class="bg-purple-700 px-3 py-1 rounded-full">Asana</span>
-                                        <span class="bg-purple-700 px-3 py-1 rounded-full">TablePlus</span>
-                                        <span class="bg-purple-700 px-3 py-1 rounded-full">VS Code</span>
-                                        <span class="bg-purple-700 px-3 py-1 rounded-full">Gitlab</span>
-                                        <span class="bg-purple-700 px-3 py-1 rounded-full">Github</span>
+                                        <div class="mb-4">
+                                            <span class="text-sm leading-7 text-zinc-500">PHP (Laravel)</span>
+                                            <div class="flex flex-auto rounded-full bg-zinc-200">
+                                                <div class="h-2 w-11/12 flex-none rounded-l-full rounded-r-[1px] bg-purple-700"></div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-4">
+                                            <span class="text-sm leading-7 text-zinc-500">Testing (PestPHP & PHPUnit)</span>
+                                            <div class="flex flex-auto rounded-full bg-zinc-200">
+                                                <div class="h-2 w-11/12 flex-none rounded-l-full rounded-r-[1px] bg-purple-700"></div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-4">
+                                            <span class="text-sm leading-7 text-zinc-500">Javascript</span>
+                                            <div class="flex flex-auto rounded-full bg-zinc-200">
+                                                <div class="h-2 w-9/12 flex-none rounded-l-full rounded-r-[1px] bg-purple-700"></div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-4">
+                                            <span class="text-sm leading-7 text-zinc-500">Vue</span>
+                                            <div class="flex flex-auto rounded-full bg-zinc-200">
+                                                <div class="h-2 w-8/12 flex-none rounded-l-full rounded-r-[1px] bg-purple-700"></div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-4">
+                                            <span class="text-sm leading-7 text-zinc-500">CSS</span>
+                                            <div class="flex flex-auto rounded-full bg-zinc-200">
+                                                <div class="h-2 w-8/12 flex-none rounded-l-full rounded-r-[1px] bg-purple-700"></div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-4">
+                                            <span class="text-sm leading-7 text-zinc-500">MySQL</span>
+                                            <div class="flex flex-auto rounded-full bg-zinc-200">
+                                                <div class="h-2 w-10/12 flex-none rounded-l-full rounded-r-[1px] bg-purple-700"></div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-4">
+                                            <span class="text-sm leading-7 text-zinc-500">Docker</span>
+                                            <div class="flex flex-auto rounded-full bg-zinc-200">
+                                                <div class="h-2 w-3/12 flex-none rounded-l-full rounded-r-[1px] bg-purple-700"></div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-4">
+                                            <span class="text-sm leading-7 text-zinc-500">Git</span>
+                                            <div class="flex flex-auto rounded-full bg-zinc-200">
+                                                <div class="h-2 w-10/12 flex-none rounded-l-full rounded-r-[1px] bg-purple-700"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article aria-labelledby="codedor-title" class="py-10 sm:py-12">
+                            <div class="lg:px-8">
+                                <div class="lg:max-w-4xl">
+                                    <div class="mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:px-0 text-zinc-500 flex flex-wrap gap-4">
+                                        <span class="">MeiliSearch</span>
+                                        <span class="">Algolia</span>
+                                        <span class="">Docker</span>
+                                        <span class="">Git</span>
+                                        <span class="">Linux</span>
+                                        <span class="">REST</span>
+                                        <span class="">Jira/Confluence</span>
+                                        <span class="">Office 365</span>
+                                        <span class="">Asana</span>
+                                        <span class="">TablePlus</span>
+                                        <span class="">VS Code</span>
+                                        <span class="">Gitlab</span>
+                                        <span class="">Github</span>
+                                        <span class="">Debugging</span>
+                                        <span class="">Communication</span>
                                     </div>
                                 </div>
                             </div>

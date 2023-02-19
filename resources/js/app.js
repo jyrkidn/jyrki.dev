@@ -1,12 +1,13 @@
-import { Editor } from '@tiptap/core'
-import StarterKit from '@tiptap/starter-kit'
-import Document from '@tiptap/extension-document'
-import Paragraph from '@tiptap/extension-paragraph'
-import Text from '@tiptap/extension-text'
+import { Editor } from "@tiptap/core";
+import Document from "@tiptap/extension-document";
+import Paragraph from "@tiptap/extension-paragraph";
+import Text from "@tiptap/extension-text";
 
-import Alpine from 'alpinejs'
+import Alpine from "alpinejs";
 
-window.Alpine = Alpine
+import "../css/app.css";
+
+window.Alpine = Alpine;
 
 window.setupEditor = function (content) {
     return {
@@ -16,20 +17,16 @@ window.setupEditor = function (content) {
         init(element) {
             this.editor = new Editor({
                 element: element,
-                extensions: [
-                    Document,
-                    Paragraph,
-                    Text
-                ],
+                extensions: [Document, Paragraph, Text],
                 content: this.content,
                 onUpdate: ({ editor }) => {
-                    this.content = editor.getHTML()
-                }
-            })
+                    this.content = editor.getHTML();
+                },
+            });
 
-            this.$watch('content', (content) => {
+            this.$watch("content", (content) => {
                 // If the new content matches TipTap's then we just skip.
-                if (content === this.editor.getHTML()) return
+                if (content === this.editor.getHTML()) return;
 
                 /*
                   Otherwise, it means that a force external to TipTap
@@ -40,10 +37,10 @@ window.setupEditor = function (content) {
                   For more information on the `setContent()` method, see:
                     https://www.tiptap.dev/api/commands/set-content
                 */
-                this.editor.commands.setContent(content, false)
-            })
-        }
-    }
-}
+                this.editor.commands.setContent(content, false);
+            });
+        },
+    };
+};
 
-Alpine.start()
+Alpine.start();
