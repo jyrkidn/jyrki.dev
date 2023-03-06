@@ -87,9 +87,18 @@
                                             </span>
                                             <p class="mt-1 text-base leading-7 text-zinc-700">
                                                 Started as my first job and in the first four years, I grew to being the lead back-end developer.
-                                                As lead back-end developer I was responsible for choosing our tools (e.g. we switched from Gitlab to Github). Also we switched from CakePHP (custom cms) to Laravel (first Nova and now Filament), introduced Vue.js. Wrote down our <a href="https://guidelines.codedor.be/">guidelines</a>, helped interviewing applicants, put out roadmaps for each year, followed up the performance reviews for each back-end developer, made together with the other back-end developers around 60 private Laravel packages (that were too specific to open source).
-                                                For client projects I made REST API’s, talked with external services (SOAP/REST/Payment providers)
                                             </p>
+                                            <ul class="ml-4 list-disc text-base leading-7 text-zinc-500">
+                                                <li>Choosing tools we use (Github, Sentry, ...)</li>
+                                                <li>Organized migration from CakePHP to Laravel</li>
+                                                <li>Introduced Vue.js</li>
+                                                <li>Documented our <a href="https://guidelines.codedor.be/">guidelines</a></li>
+                                                <li>Interviewing applicants</li>
+                                                <li>Made and executed yearly roadmaps</li>
+                                                <li>Leading performance reviews</li>
+                                                <li>Maintaining around 60 internal Laravel packages</li>
+                                                <li>Coding for clients (REST API, integration with external services etc.)</li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>

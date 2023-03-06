@@ -45,6 +45,6 @@ task('deploy', [
     'artisan:config:cache',
     'artisan:migrate',
     'deploy:publish',
-    'npm:install',
-    'npm:build',
+    // 'npm:install',
+    // 'npm:build',
 ]);
