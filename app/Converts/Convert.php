@@ -5,6 +5,7 @@ namespace App\Converts;
 class Convert implements ConvertsInterface
 {
     public string $uglified;
+
     public const MODE = '';
 
     public static function new(string $uglified)

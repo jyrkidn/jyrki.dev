@@ -9,8 +9,7 @@ enum PostType: string
 
     public function type(): string
     {
-        return match($this)
-        {
+        return match ($this) {
             self::REDIRECT => 'Redirect',
             self::ARTICLE => 'Article',
         };

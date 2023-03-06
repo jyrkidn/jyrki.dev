@@ -49,7 +49,7 @@ class SearchPost extends SpotlightCommand
     {
         return Team::where('name', 'like', "%$query%")
             ->get()
-            ->map(function(Team $team) {
+            ->map(function (Team $team) {
                 // You must map your search result into SpotlightSearchResult objects
                 return new SpotlightSearchResult(
                     $team->id,
