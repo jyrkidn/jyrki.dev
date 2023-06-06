@@ -1,0 +1,28 @@
+@media (min-width: 1280px) {
+    .xl\:left-120 {
+        left: 25rem;
+    }
+
+    .xl\:ml-120 {
+        margin-left: 25rem;
+    }
+
+    .xl\:w-120 {
+        width: 25rem;
+    }
+
+    .xl\:px-12 {
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .lg\:w-112 {
+        width: 23rem;
+    }
+
+    .lg\:ml-112 {
+        margin-left: 23rem;
+    }
+}
