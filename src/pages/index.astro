@@ -6,16 +6,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 // Component Imports
 import Hero from '../components/Hero.astro';
-import Skills from '../components/Skills.astro';
 ---
 
 <BaseLayout>
 	<main class="h-full mb-20 relative max-w-[52rem] mx-auto px-4 sm:px-6 md:px-8 xl:px-12 lg:max-w-7xl md:w-auto">
-		<div class="mb-16 md:mb-36 flex">
+		<div class="mb-16 md:mb-20 flex">
 			<Hero
-				title="Hello, my name is Jyrki De Neve"
-				tagline="I am a Laravel Developer who is currently based in Suntaži Parish, Latvia."
+				title="Hello, my name is Jyrki"
 			/>
+		</div>
+		<div>
+			<p class="mb-4">
+				I'm a Laravel developer, living in Latvia.
+			</p>
+			<p>
+				Follow me on <a target="_blank" href="https://twitter.com/jyrkidn" class="underline text-indigo-600">Twitter</a> or <a target="_blank" href="https://github.com/jyrkidn" class="underline text-indigo-600">Github</a>.
+			</p>
 		</div>
 	</main>
 </BaseLayout>
