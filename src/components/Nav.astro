@@ -2,8 +2,8 @@
 /** Main menu items */
 const textLinks: { label: string; href: string }[] = [
 	{ label: 'Home', href: '/' },
-	{ label: 'Resume', href: '/resume' },
-	{ label: 'About', href: '/about' },
+	// { label: 'Resume', href: '/resume' },
+	{ label: 'Uses', href: '/uses' },
 ];
 ---
 
@@ -14,31 +14,31 @@ const textLinks: { label: string; href: string }[] = [
 				Jyrki De Neve
 			</a>
 			<div class="relative flex items-center ml-auto space-x-2 md:space-x-8">
-				<!--<nav>-->
-				<!--	<ul class="text-sm flex items-center space-x-2 md:space-x-8 font-medium leading-none">-->
-				<!--		{-->
-				<!--			textLinks.map(({ label, href }) => (-->
-				<!--				<li>-->
-				<!--					<a-->
-				<!--						aria-current={Astro.url.pathname === href}-->
-				<!--						class:list={[-->
-				<!--							'uppercase',-->
-				<!--							'text-gray-800',-->
-				<!--							{-->
-				<!--								'text-purple-500':-->
-				<!--									Astro.url.pathname === href ||-->
-				<!--									(href !== '/' && Astro.url.pathname.startsWith(href)),-->
-				<!--							},-->
-				<!--						]}-->
-				<!--						href={href}-->
-				<!--					>-->
-				<!--						{label}-->
-				<!--					</a>-->
-				<!--				</li>-->
-				<!--			))-->
-				<!--		}-->
-				<!--	</ul>-->
-				<!--</nav>-->
+				<nav>
+					<ul class="text-sm flex items-center space-x-2 md:space-x-8 font-medium leading-none">
+						{
+							textLinks.map(({ label, href }) => (
+								<li>
+									<a
+										aria-current={Astro.url.pathname === href}
+										class:list={[
+											'uppercase',
+											'text-gray-800',
+											{
+												'text-purple-500':
+													Astro.url.pathname === href ||
+													(href !== '/' && Astro.url.pathname.startsWith(href)),
+											},
+										]}
+										href={href}
+									>
+										{label}
+									</a>
+								</li>
+							))
+						}
+					</ul>
+				</nav>
 			</div>
 		</div>
 	</header>
