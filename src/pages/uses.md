@@ -25,7 +25,7 @@ title: 'Current setup'
 ## Android
 
 - As my main phone I have a Samsung Galaxy A53 5G which syncs nicely with my Samsung Galaxy Watch 4.
-- As main browser I use Firefox Nightly (waiting for the Android version of Arc)
+- As main browser I use Google Chrome (waiting for the Android version of Arc)
 - Most uses apps are:
   - Twitter
   - Feedly
