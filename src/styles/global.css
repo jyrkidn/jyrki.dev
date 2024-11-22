@@ -1,3 +1,7 @@
+@import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
+
 @media (min-width: 1280px) {
     .xl\:left-120 {
         left: 25rem;
