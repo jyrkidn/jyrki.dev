@@ -7,8 +7,8 @@
                         <x-logo />
                     </a>
                     <div class="flex items-center gap-x-8">
-                        <a class="inline-flex rounded-full bg-purple-600 px-4 py-1.5 text-sm font-semibold text-white transition hover:bg-purple-400" href="/contact"><span class="relative top-px">Contact us</span></a
-                        >
+                        <x-nav-link route="home">Home</x-nav-link>
+                        <x-nav-link route="uses">Uses</x-nav-link>
                     </div>
                 </div>
             </div>
