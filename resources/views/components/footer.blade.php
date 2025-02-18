@@ -6,7 +6,7 @@
                     <x-logo />
                 </a>
                 <p class="text-sm text-purple-900">
-                    © Jyrki De Neve
+                    &copy; Jyrki De Neve
                     {{ now()->year }}
                 </p>
             </div>

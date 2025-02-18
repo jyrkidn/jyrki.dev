@@ -13,68 +13,24 @@
         <x-slot:title>
             Some of my open-source packages
         </x-slot:title>
-        <ul role="list" class="mt-10 grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4">
-            <li>
-                <div><img alt="Phobia" loading="lazy" width="184" height="36" decoding="async" data-nimg="1" style="color:transparent" src="/_next/static/media/logo-light.ada2d552.svg" /></div>
-            </li>
-            <li>
-                <div><img alt="Family Fund" loading="lazy" width="184" height="36" decoding="async" data-nimg="1" style="color:transparent" src="/_next/static/media/logo-light.5c8de99c.svg" /></div>
-            </li>
-            <li>
-                <div><img alt="Unseal" loading="lazy" width="184" height="36" decoding="async" data-nimg="1" style="color:transparent" src="/_next/static/media/logo-light.f6ce2960.svg" /></div>
-            </li>
-            <li>
-                <div><img alt="Mail Smirk" loading="lazy" width="184" height="36" decoding="async" data-nimg="1" style="color:transparent" src="/_next/static/media/logo-light.249606f6.svg" /></div>
-            </li>
-            <li>
-                <div><img alt="Home Work" loading="lazy" width="184" height="36" decoding="async" data-nimg="1" style="color:transparent" src="/_next/static/media/logo-light.da1195d8.svg" /></div>
-            </li>
-            <li>
-                <div><img alt="Green Life" loading="lazy" width="184" height="36" decoding="async" data-nimg="1" style="color:transparent" src="/_next/static/media/logo-light.1704e6d8.svg" /></div>
-            </li>
-            <li>
-                <div><img alt="Bright Path" loading="lazy" width="184" height="36" decoding="async" data-nimg="1" style="color:transparent" src="/_next/static/media/logo-light.456aa9d9.svg" /></div>
-            </li>
-            <li>
-                <div><img alt="North Adventures" loading="lazy" width="184" height="36" decoding="async" data-nimg="1" style="color:transparent" src="/_next/static/media/logo-light.e19f9c9b.svg" /></div>
-            </li>
+
+        <ul role="list" class="mt-10 grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
+            <x-open-source-block />
+            <x-open-source-block />
+            <x-open-source-block />
+            <x-open-source-block />
         </ul>
+
     </x-dark-block>
     <x-title-block>
         Blog posts
     </x-title-block>
     <x-content-block>
         <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
-            <div class="flex">
-                <article class="relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-purple-600/5 transition hover:bg-neutral-50 sm:p-8">
-                    <h3>
-                        <a href="/work/family-fund"><span class="absolute inset-0 rounded-3xl"></span><img alt="FamilyFund" loading="lazy" width="36" height="36" decoding="async" data-nimg="1" class="h-16 w-16" style="color:transparent" src="/_next/static/media/logomark-dark.4d2947be.svg" /></a>
-                    </h3>
-                    <p class="mt-6 flex gap-x-2 text-sm text-purple-900"><time datetime="2023" class="font-semibold">2023</time><span class="text-neutral-300" aria-hidden="true">/</span><span>Case study</span></p>
-                    <p class="font-display mt-6 text-2xl font-semibold text-purple-900">Skip the bank, borrow from those you trust</p>
-                    <p class="mt-4 text-base text-purple-900">FamilyFund is a crowdfunding platform for friends and family. Allowing users to take personal loans from their network without a traditional financial institution.</p>
-                </article>
-            </div>
-            <div class="flex">
-                <article class="relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-purple-600/5 transition hover:bg-neutral-50 sm:p-8">
-                    <h3>
-                        <a href="/work/unseal"><span class="absolute inset-0 rounded-3xl"></span><img alt="Unseal" loading="lazy" width="36" height="36" decoding="async" data-nimg="1" class="h-16 w-16" style="color:transparent" src="/_next/static/media/logomark-dark.73187f97.svg" /></a>
-                    </h3>
-                    <p class="mt-6 flex gap-x-2 text-sm text-purple-900"><time datetime="2022" class="font-semibold">2022</time><span class="text-neutral-300" aria-hidden="true">/</span><span>Case study</span></p>
-                    <p class="font-display mt-6 text-2xl font-semibold text-purple-900">Get a hodl of your health</p>
-                    <p class="mt-4 text-base text-purple-900">Unseal is the first NFT platform where users can mint and trade NFTs of their own personal health records, allowing them to take control of their data.</p>
-                </article>
-            </div>
-            <div class="flex">
-                <article class="relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-purple-600/5 transition hover:bg-neutral-50 sm:p-8">
-                    <h3>
-                        <a href="/work/phobia"><span class="absolute inset-0 rounded-3xl"></span><img alt="Phobia" loading="lazy" width="36" height="36" decoding="async" data-nimg="1" class="h-16 w-16" style="color:transparent" src="/_next/static/media/logomark-dark.00d7d7b3.svg" /></a>
-                    </h3>
-                    <p class="mt-6 flex gap-x-2 text-sm text-purple-900"><time datetime="2022" class="font-semibold">2022</time><span class="text-neutral-300" aria-hidden="true">/</span><span>Case study</span></p>
-                    <p class="font-display mt-6 text-2xl font-semibold text-purple-900">Overcome your fears, find your match</p>
-                    <p class="mt-4 text-base text-purple-900">Find love in the face of fear — Phobia is a dating app that matches users based on their mutual phobias so they can be scared together.</p>
-                </article>
-            </div>
+            <x-blog-list-item />
+            <x-blog-list-item />
+            <x-blog-list-item />
+            <x-blog-list-item />
         </div>
     </x-content-block>
     <x-content-block>
