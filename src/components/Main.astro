@@ -1,0 +1,17 @@
+---
+const { type, class: extraClasses } = Astro.props
+
+let typeClasses = ''
+
+if (type === 'hero') {
+	typeClasses = 'flex flex-col justify-center items-center'
+}
+
+if (type === 'page') {
+	typeClasses = 'pt-16 mb-20'
+}
+---
+
+<main class:list={['grow h-full relative px-4 sm:px-6 md:px-8 xl:px-12', typeClasses, extraClasses]}>
+	<slot />
+</main>

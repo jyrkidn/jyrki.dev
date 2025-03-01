@@ -2,18 +2,19 @@
 /** Main menu items */
 const textLinks: { label: string; href: string }[] = [
 	{ label: 'Home', href: '/' },
-	// { label: 'Resume', href: '/resume' },
+	{ label: 'Skills', href: '/skills' },
+	{ label: 'Open Source', href: '/open-source' },
 	{ label: 'Uses', href: '/uses' },
 ];
 ---
 
 <nav>
-	<header class="relative mb-16 md:mb-36 max-w-[52rem] mx-auto px-4 sm:px-6 md:px-8 xl:px-12 lg:max-w-7xl pt-6 md:w-auto">
-		<div class="flex items-center text-center">
+	<header class="relative px-4 sm:px-6 md:px-8 xl:px-12 pt-6">
+		<div class="flex items-center text-center flex-col sm:flex-row gap-4 md:gap-0">
 			<a href="/" class="border-none text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-tl from-indigo-400 to-indigo-600" transition:persist>
 				Jyrki De Neve
 			</a>
-			<div class="relative flex items-center ml-auto space-x-2 md:space-x-8">
+			<div class="relative flex items-center space-x-2 md:space-x-8 sm:ml-auto">
 				<nav>
 					<ul class="text-sm flex items-center space-x-2 md:space-x-8 font-medium leading-none">
 						{
@@ -25,7 +26,7 @@ const textLinks: { label: string; href: string }[] = [
 											'uppercase',
 											'text-gray-800',
 											{
-												'text-purple-500':
+												'text-indigo-600':
 													Astro.url.pathname === href ||
 													(href !== '/' && Astro.url.pathname.startsWith(href)),
 											},

@@ -1,0 +1,54 @@
+---
+const skills = [
+    {
+        name: 'Laravel',
+        percentage: 'w-[90%]',
+    },
+    {
+        name: 'PHP',
+        percentage: 'w-[60%]',
+    },
+    {
+        name: 'Testing (PestPHP & PHPUnit)',
+        percentage: 'w-[90%]',
+    },
+    {
+        name: 'Javascript',
+        percentage: 'w-[75%]',
+    },
+    {
+        name: 'Vue',
+        percentage: 'w-[70%]',
+    },
+    {
+        name: 'CSS',
+        percentage: 'w-[70%]',
+    },
+    {
+        name: 'MySQL',
+        percentage: 'w-[80%]',
+    },
+    {
+        name: 'Docker',
+        percentage: 'w-[30%]',
+    },
+    {
+        name: 'Git',
+        percentage: 'w-[80%]',
+    },
+]
+---
+
+<div class="mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:px-0">
+    { skills.map((skill) => (
+        <div class="mb-4">
+            <span class="text-sm leading-7 text-zinc-500">{skill.name}</span>
+            <div class="flex flex-auto rounded-full bg-zinc-200">
+                <div class:list={[
+                    'h-2 flex-none rounded-l-full rounded-r-[1px] bg-indigo-600',
+                    skill.percentage
+                ]}></div>
+            </div>
+        </div>
+    )) }
+</div>

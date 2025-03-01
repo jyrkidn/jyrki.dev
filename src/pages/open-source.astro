@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Main from '../components/Main.astro';
+
+const packages = [
+	{
+		name: 'codedor/laravel-locale-collection',
+		description: 'Locale Collection package for Laravel',
+		url: 'https://packagist.org/packages/codedor/laravel-locale-collection',
+	},
+	{
+		name: 'codedor/laravel-translatable-routes',
+		description: 'Package for Laravel to make routes translatable',
+		url: 'https://packagist.org/packages/codedor/laravel-translatable-routes',
+	},
+	{
+		name: 'codedor/filament-translatable-tabs',
+		description: 'Adds a tab per locale and adds integration for spatie/laravel-translatable in Filament',
+		url: 'https://packagist.org/packages/codedor/filament-translatable-tabs',
+	},
+	{
+		name: 'codedor/filament-redirects',
+		description: 'This package allows you to add redirects via Filament manually or with an import',
+		url: 'https://packagist.org/packages/codedor/filament-redirects',
+	},
+]
+---
+
+<BaseLayout>
+	<Main type="page">
+		<Hero
+			title="Some of my open-source packages"
+		/>
+		<div class="mt-16 p-4">
+			<dl class="w-full mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+				{packages.map((item) => (
+					<div class="relative overflow-hidden rounded-lg bg-white px-4 pt-5 pb-12 shadow-sm sm:px-6 sm:pt-6">
+						<dt>
+							<p class="truncate text-normal font-medium text-gray-900">{item.name}</p>
+						</dt>
+						<dd class="flex items-baseline pb-6 sm:pb-7">
+							<p class="text-xs text-gray-500">{item.description}</p>
+							<div class="absolute inset-x-0 bottom-0 bg-gray-50 px-4 py-4 sm:px-6">
+								<div class="text-sm">
+									<a
+										href={item.url}
+										target="_blank"
+										class="font-medium text-indigo-600 hover:text-indigo-500"
+									>View on Packagist</a>
+								</div>
+							</div>
+						</dd>
+					</div>
+				))}
+			</dl>
+		</div>
+	</Main>
+</BaseLayout>

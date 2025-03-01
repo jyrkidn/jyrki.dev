@@ -1,8 +1,13 @@
 ---
 import Hero from '../components/Hero.astro';
+import Main from '../components/Main.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Not Found" description="404 Error — this page was not found">
-	<Hero title="Page Not Found" tagline="Not found" />
+	<Main type="hero">
+		<div class="mb-16 md:mb-20 flex">
+			<Hero title="Page Not Found" tagline="Not found" />
+		</div>
+	</Main>
 </BaseLayout>
