@@ -4,7 +4,7 @@
 <a
     href="{{ route($route) }}"
     @class([
-        'inline-flex text-xl font-semibold text-purple-900 transition hover:text-purple-700',
+        'inline-flex text-xl font-semibold text-primary transition hover:text-purple-700',
         'underline' => request()->routeIs($route),
     ])
 >

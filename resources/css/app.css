@@ -8,5 +8,8 @@
 
 @theme {
     --font-mono: 'JetBrains Mono', monospace;
-    --font-handwriting: 'Pacifico', handwriting;
+    --font-handwriting: 'JetBrains Mono', monospace;
+
+    --color-primary: var(--color-purple-900);
+    --color-secondary: var(--color-purple-600);
 }
