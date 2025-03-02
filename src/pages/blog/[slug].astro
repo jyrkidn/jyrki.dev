@@ -1,0 +1,33 @@
+---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import Main from "../../components/Main.astro";
+
+interface Props {
+    post: CollectionEntry<'blog'>;
+}
+
+export async function getStaticPaths() {
+    const blogPosts = await getCollection('blog');
+    return blogPosts.map((post) => ({
+        params: { slug: post.slug },
+        props: { post },
+    }));
+}
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<BaseLayout title={post.data.title} description={post.data.excerpt}>
+    <Main type="page" class="prose lg:prose-xl prose-headings:text-indigo-600">
+        <Hero
+            title={post.data.title}
+        />
+        <div class="mt-16 p-4 lg:w-2/3 lg:mx-auto">
+            <Content />
+        </div>
+    </Main>
+</BaseLayout>

@@ -1,0 +1,22 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Main from "../components/Main.astro";
+import BlogCard from "../components/BlogCard.astro";
+
+const blogPosts = await getCollection('blog');
+---
+
+<BaseLayout title="Blog | Jyrki De Neve" description="My blog posts">
+    <Main>
+        <Hero
+            title="Blog"
+        />
+        <div class="mt-16 p-4 flex flex-col gap-8 divide-y divide-indigo-100">
+            {blogPosts.map((post) => (
+                <BlogCard post={post} />
+            ))}
+        </div>
+    </Main>
+</BaseLayout>

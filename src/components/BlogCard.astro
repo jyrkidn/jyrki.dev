@@ -1,0 +1,28 @@
+---
+import type { CollectionEntry } from 'astro:content';
+interface Props {
+    post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+---
+
+<article class="group relative flex flex-col items-start">
+    <h2 class="text-base font-semibold tracking-tight text-zinc-800">
+        <div class="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition sm:-inset-x-6 sm:rounded-2xl "></div>
+        <a href={'/blog/' +post.slug}>
+            <span class="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl"></span>
+            <span class="relative z-10">{post.data.title}</span>
+        </a>
+    </h2>
+    <time class="relative z-10 order-first mb-3 flex items-center text-sm text-zinc-400" datetime={post.data.date.toISOString()}>
+        {post.data.date.toLocaleDateString()}
+    </time>
+    <p class="relative z-10 mt-2 text-sm text-zinc-600 ">
+        {post.data.excerpt}
+    </p>
+    <div aria-hidden="true" class="relative z-10 mt-4 flex items-center text-sm font-medium text-indigo-600 mb-8">
+        Read more
+    </div>
+</article>
+
