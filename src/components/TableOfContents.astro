@@ -11,36 +11,64 @@ const tocHeadings = headings.filter(h => h.depth <= 3);
 
 <nav class="toc lg:sticky top-8 lg:max-h-[calc(100vh-4rem)] lg:overflow-y-auto">
     <h2 class="text-2xl lg:text-sm font-semibold text-gray-900 mb-4">On this page</h2>
-    <ul class="space-y-2 text-sm">
-        {tocHeadings.map((heading) => (
-            <li
-                class:list={[
-                    "border-0 lg:border-l-2 border-gray-200 transition-colors duration-200",
-                    { "lg:pl-4": heading.depth === 2, "pl-4 lg:pl-8": heading.depth === 3 }
-                ]}
-                data-heading-id={heading.slug}
-            >
-                <a
-                    href={`#${heading.slug}`}
-                    class="block py-1 text-gray-600 hover:text-indigo-600 transition-colors"
+    <div class="relative">
+        <!-- Animated border indicator -->
+        <div
+            class="hidden lg:block absolute left-0 w-0.5 bg-indigo-600 transition-all duration-500 ease-out toc-indicator"
+            style="top: 0; height: 0; opacity: 0;"
+        ></div>
+
+        <ul class="space-y-2 text-sm relative">
+            {tocHeadings.map((heading) => (
+                <li
+                    class:list={[
+                        { "lg:pl-4": heading.depth === 2, "pl-4 lg:pl-8": heading.depth === 3 }
+                    ]}
+                    data-heading-id={heading.slug}
                 >
-                    {heading.text}
-                </a>
-            </li>
-        ))}
-    </ul>
+                    <a
+                        href={`#${heading.slug}`}
+                        class="block py-1 text-gray-600 hover:text-indigo-600 transition-colors"
+                    >
+                        {heading.text}
+                    </a>
+                </li>
+            ))}
+        </ul>
+    </div>
 </nav>
 
 <script>
-    // Intersection Observer for scroll-based highlighting
+    // Intersection Observer for scroll-based highlighting with smooth border animation
     function initTOC() {
         const headings = document.querySelectorAll('article h2, article h3');
         const tocItems = document.querySelectorAll('.toc li');
+        const indicator = document.querySelector('.toc-indicator');
+
+        if (!indicator) return;
 
         const observerOptions = {
             rootMargin: '-80px 0px -66%',
             threshold: 0
         };
+
+        function updateIndicator(activeItem) {
+            if (!activeItem) {
+                indicator.style.opacity = '0';
+                return;
+            }
+
+            // Get position and height of active item
+            const rect = activeItem.getBoundingClientRect();
+            const listRect = activeItem.parentElement.getBoundingClientRect();
+            const top = rect.top - listRect.top;
+            const height = rect.height;
+
+            // Animate indicator to new position
+            indicator.style.top = `${top}px`;
+            indicator.style.height = `${height}px`;
+            indicator.style.opacity = '1';
+        }
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -50,8 +78,6 @@ const tocHeadings = headings.filter(h => h.depth <= 3);
                 if (entry.isIntersecting) {
                     // Remove active class from all items
                     tocItems.forEach(item => {
-                        item.classList.remove('border-indigo-600');
-                        item.classList.add('border-gray-200');
                         const link = item.querySelector('a');
                         if (link) {
                             link.classList.remove('text-indigo-600', 'font-medium');
@@ -61,19 +87,28 @@ const tocHeadings = headings.filter(h => h.depth <= 3);
 
                     // Add active class to current item
                     if (tocItem) {
-                        tocItem.classList.remove('border-gray-200');
-                        tocItem.classList.add('border-indigo-600');
                         const link = tocItem.querySelector('a');
                         if (link) {
                             link.classList.remove('text-gray-600');
                             link.classList.add('text-indigo-600', 'font-medium');
                         }
+
+                        // Update indicator position
+                        updateIndicator(tocItem);
                     }
                 }
             });
         }, observerOptions);
 
         headings.forEach(heading => observer.observe(heading));
+
+        // Update indicator on resize
+        window.addEventListener('resize', () => {
+            const activeItem = document.querySelector('.toc li a.text-indigo-600')?.parentElement;
+            if (activeItem) {
+                updateIndicator(activeItem);
+            }
+        });
     }
 
     // Initialize on page load
