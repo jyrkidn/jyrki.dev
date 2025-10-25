@@ -5,7 +5,9 @@ import Hero from '../components/Hero.astro';
 import Main from "../components/Main.astro";
 import BlogCard from "../components/BlogCard.astro";
 
-const blogPosts = await getCollection('blog');
+const blogPosts = (await getCollection('blog')).sort(
+    (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
 ---
 
 <BaseLayout title="Blog | Jyrki De Neve" description="My blog posts">

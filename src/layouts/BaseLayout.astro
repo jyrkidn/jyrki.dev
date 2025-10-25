@@ -22,15 +22,64 @@ const { title, description } = Astro.props;
 		<ViewTransitions />
 	</head>
 	<body class="flex min-h-full flex-col font-mono">
-		<div class="rounded-[1px] m-1 relative flex flex-col flex-auto overflow-hidden bg-white pt-4">
+		<div class="rounded-[1px] m-1 relative flex flex-col flex-auto bg-white pt-4">
 			<Nav />
 			<slot />
 			<Footer />
 		</div>
 
-		<script>
+        <div
+                class="fixed bottom-1 left-1 z-50 flex h-6 w-6 items-center justify-center rounded-full bg-gray-800 p-3 font-mono text-xs text-white"
+        >
+            <div class="block sm:hidden">xs</div>
+            <div class="hidden sm:block md:hidden">sm</div>
+            <div class="hidden md:block lg:hidden">md</div>
+            <div class="hidden lg:block xl:hidden">lg</div>
+            <div class="hidden xl:block 2xl:hidden">xl</div>
+            <div class="hidden 2xl:block">2xl</div>
+        </div>
+
+        <script>
 			// Add “loaded” class once the document has completely loaded.
 			addEventListener('load', () => document.documentElement.classList.add('loaded'));
 		</script>
+
+        <script>
+            let copyButtonLabel = "Copy";
+            let codeBlocks = Array.from(document.querySelectorAll("pre"));
+            console.log(codeBlocks);
+            for (let codeBlock of codeBlocks) {
+                let wrapper = document.createElement("div");
+                wrapper.style.position = "relative";
+
+                let copyButton = document.createElement("button");
+                copyButton.className = "copy-code";
+                copyButton.innerHTML = copyButtonLabel;
+
+                codeBlock.setAttribute("tabindex", "0");
+                codeBlock.appendChild(copyButton);
+                // wrap codebock with relative parent element
+                codeBlock.parentNode.insertBefore(wrapper, codeBlock);
+                wrapper.appendChild(codeBlock);
+
+                copyButton.addEventListener("click", async () => {
+                    await copyCode(codeBlock, copyButton);
+                });
+            }
+
+            async function copyCode(block, button) {
+                let code = block.querySelector("code");
+                let text = code.innerText;
+
+                await navigator.clipboard.writeText(text);
+
+                // visual feedback that task is completed
+                button.innerText = "Code Copied";
+
+                setTimeout(() => {
+                    button.innerText = copyButtonLabel;
+                }, 700);
+            }
+        </script>
 	</body>
 </html>

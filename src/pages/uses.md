@@ -9,12 +9,12 @@ title: 'Current setup'
   - [Astro](https://plugins.jetbrains.com/plugin/20959-astro)
   - [Catppuccin](https://github.com/catppuccin) theme combined with the [JetBrains Mono](https://www.jetbrains.com/lp/mono/) font.
 - For older projects that I have to access via SSH I tend to switch back to [VSCode](https://code.visualstudio.com/)
-- As Terminal I use [WezTerm](https://wezfurlong.org/wezterm/index.html).
-  - Theme: [Catppuccin](https://github.com/catppuccin/WezTerm)
-  - Plugins: [wezterm.bar](https://github.com/nekowinston/wezterm-bar)
+- As Terminal I use [Warp](https://www.warp.dev/).
+  - Theme: Github Light
 - On my Mac I use [Arc](https://arc.net/) as browser with the [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm) extension.
 - To track my time I use [Toggl](track.toggl.com/)
 - To manage databases I use [TablePlus](https://tableplus.com/)
+- For AI, there is Claude Code and ChatGPT
 
 ## MacOS
 
@@ -24,9 +24,9 @@ title: 'Current setup'
 
 ## Android
 
-- As my main phone I have a Google Pixel 7a which works nicely with my Samsung Galaxy Watch 4.
-- As main browser I use Google Chrome (waiting for the Android version of Arc)
-- Most uses apps are:
+- As my main phone I have a OnePlus Nord 4
+- As main browser I use Google Chrome
+- Most used apps are:
   - BlueSky
   - Feedly
   - Signal

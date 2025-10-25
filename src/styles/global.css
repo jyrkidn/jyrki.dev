@@ -30,3 +30,14 @@
         margin-left: 23rem;
     }
 }
+
+.copy-code {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--color-indigo-600);
+    color: var(--color-white);
+    padding: 0.25rem 0.5rem;
+    font-size: var(--text-base); /* 1rem (16px) */
+    line-height: var(--text-base--line-height); /* calc(1.5 / 1) */
+}
