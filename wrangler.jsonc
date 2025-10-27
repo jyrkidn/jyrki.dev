@@ -1,5 +1,5 @@
 {
-  "name": "jyrki-dev",
+  "name": "jyrki-dev-worker",
   "compatibility_date": "2025-10-27", // Update to the day you deploy
   "assets": {
     "directory": "./dist",
