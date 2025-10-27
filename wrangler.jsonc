@@ -1,0 +1,7 @@
+{
+  "name": "jyrki-dev",
+  "compatibility_date": "2025-10-27", // Update to the day you deploy
+  "assets": {
+    "directory": "./dist",
+  }
+}
