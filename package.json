@@ -10,8 +10,9 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/rss": "^4.0.14",
     "@jsdevtools/rehype-url-inspector": "^2.0.2",
-    "astro": "^5.0",
+    "astro": "^5.16.5",
     "remark-toc": "^9.0.0",
     "tailwindcss": "^4.0"
   },

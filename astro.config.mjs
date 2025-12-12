@@ -4,6 +4,7 @@ import inspectUrls from "@jsdevtools/rehype-url-inspector";
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://jyrki.dev',
   vite: {
     plugins: [tailwindcss()]
   },
