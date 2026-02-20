@@ -43,13 +43,13 @@ const skills = [
 ]
 ---
 
-<div class="mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:px-0">
+<div class="mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:px-0 print:grid print:grid-cols-2 print:gap-x-6 print:gap-y-1 print:px-0">
     { skills.map((skill) => (
-        <div class="mb-4">
-            <span class="text-sm leading-7 text-zinc-500">{skill.name}</span>
-            <div class="flex flex-auto rounded-full bg-zinc-200">
+        <div class="mb-4 print:mb-0">
+            <span class="text-sm leading-7 text-zinc-500 print:text-xs print:leading-5">{skill.name}</span>
+            <div class="flex flex-auto rounded-full bg-zinc-200 print:h-1.5">
                 <div class:list={[
-                    'h-2 flex-none rounded-l-full rounded-r-[1px] bg-indigo-600',
+                    'h-2 print:h-1.5 flex-none rounded-l-full rounded-r-[1px] bg-indigo-600',
                     skill.percentage
                 ]}></div>
             </div>

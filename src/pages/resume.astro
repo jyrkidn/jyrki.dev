@@ -1,274 +1,179 @@
 ---
-import MainHead from "../components/MainHead.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Main from "../components/Main.astro";
 import Skills from "../components/Skills.astro";
 ---
 
-<html lang="en">
-    <head>
-        <MainHead title="Resume" description="" />
-    </head>
-    <body>
-        <div>
-            <header class="bg-zinc-50 lg:fixed lg:inset-y-0 lg:left-0 lg:flex lg:w-112 lg:items-start lg:overflow-y-auto xl:w-120">
-                <div class="relative z-10 mx-auto px-4 pb-4 pt-10 sm:px-6 md:max-w-2xl md:px-4 lg:min-h-full lg:flex-auto lg:border-x lg:border-zinc-200 lg:py-12 lg:px-8 xl:px-12">
-                    <a class="relative mx-auto block w-48 overflow-hidden rounded-lg bg-zinc-200 shadow-xl shadow-zinc-200 sm:w-64 sm:rounded-xl lg:w-auto lg:rounded-2xl" aria-label="Homepage" href="/">
-                        <img alt="" src="/assets/me.jpeg" width="200" height="200" class="w-full" style="color:transparent">
-                        <div class="absolute inset-0 rounded-lg ring-1 ring-inset ring-black/10 sm:rounded-xl lg:rounded-2xl"></div>
-                    </a>
-                    <div class="mt-10 text-center lg:mt-12 lg:text-left">
-                        <p class="text-xl font-bold text-zinc-900">Jyrki De Neve</p>
-                        <p class="mt-3 text-lg font-medium leading-8 text-zinc-700">Back-end Developer</p>
-                    </div>
-                    <section class="mt-12">
-                        <h2 class="items-center font-mono text-sm font-medium leading-7 text-zinc-900 hidden lg:flex">
-                            <x-lineawesome-address-card-solid class="h-5 w-5" />
-                            <span class="ml-5">About</span>
-                        </h2>
-                        <p class="mt-2 text-base leading-7 text-zinc-700 lg:line-clamp-4">
-                            I'm a Belgian back-end developer based in Ogre, Latvia with 10 years of experience in web development.
-                        </p>
-                    </section>
-                    <section class="mt-10 lg:mt-12">
-                        <h2 class="sr-only flex items-center font-mono text-sm font-medium leading-7 text-zinc-900 lg:not-sr-only">
-                            <x-lineawesome-id-badge-solid class="h-5 w-5" />
-                            <span class="ml-2.5">Contact</span>
-                        </h2>
-                        <div class="h-px bg-gradient-to-r from-zinc-200/0 via-zinc-200 to-zinc-200/0 lg:hidden"></div>
-                        <ul role="list" class="mt-4 flex justify-center gap-10 text-sm font-medium leading-7 text-zinc-700 sm:gap-8 lg:flex-col lg:gap-4">
-                            <li class="flex">
-                                <a class="group flex items-center" aria-label="E-mail" href="mailto:me@jyrki.dev">
-                                    <x-lineawesome-mail-bulk-solid class="h-5 w-5 fill-zinc-400" />
-                                    <span class="hidden sm:ml-3 sm:block">me@jyrki.dev</span>
-                                </a>
-                            </li>
-                            <li class="flex">
-                                <a class="group flex items-center" aria-label="Twitter" href="https://twitter.com/jyrkidn">
-                                    <x-lineawesome-twitter class="h-5 w-5 fill-zinc-400" />
-                                    <span class="hidden sm:ml-3 sm:block">@jyrkidn</span>
-                                </a>
-                            </li>
-                            <li class="flex">
-                                <a class="group flex items-center" aria-label="LinkedIn" href="https://www.linkedin.com/in/jyrki-de-neve">
-                                    <x-lineawesome-linkedin-in class="h-5 w-5 fill-zinc-400" />
-                                    <span class="hidden sm:ml-3 sm:block">jyrki-de-neve</span>
-                                </a>
-                            </li>
-                            <li class="flex">
-                                <a class="group flex items-center" aria-label="LinkedIn" href="https://jyrki.dev">
-                                    <x-lineawesome-globe-solid class="h-5 w-5 fill-zinc-400" />
-                                    <span class="hidden sm:ml-3 sm:block">jyrki.dev</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </section>
-                </div>
-            </header>
-            <main class="border-t border-zinc-200 lg:relative lg:mb-28 lg:ml-112 lg:border-t-0 xl:ml-120">
-                <div class="relative">
-                    <div class="pt-16 pb-12 sm:pb-4 lg:pt-12">
-                        <div class="lg:px-8">
-                            <div class="lg:max-w-4xl">
-                                <div class="mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:px-0">
-                                    <h1 class="text-2xl font-bold leading-7 text-zinc-900">Work Experience</h1>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="divide-y divide-zinc-100 sm:mt-4 lg:mt-8 lg:border-t lg:border-zinc-100">
-                            <article aria-labelledby="codedor-title" class="py-10 sm:py-12">
-                                <div class="lg:px-8">
-                                    <div class="lg:max-w-4xl">
-                                        <div class="mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:px-0">
-                                            <div class="flex flex-col items-start">
-                                                <h2 id="codedor-title" class="mt-2 text-lg font-bold text-zinc-900">
-                                                    <a href="https://www.whoownsthezebra.be/" target="blank">Back-end Developer @ Who Owns The Zebra, Ghent, Belgium</a>
-                                                </h2>
-                                                <span class="order-first font-mono text-sm leading-7 text-zinc-500">
-                                                        November 2012 - current
-                                                    </span>
-                                                <p class="mt-1 text-base leading-7 text-zinc-700">
-                                                    Started as my first job and in the first four years, I grew to being the lead back-end developer.
-                                                </p>
-                                                <ul class="ml-4 list-disc text-base leading-7 text-zinc-500">
-                                                    <li>Choosing tools we use (Github, Sentry, ...)</li>
-                                                    <li>Organized migration from CakePHP to Laravel</li>
-                                                    <li>Introduced Vue.js</li>
-                                                    <li>Made and executed yearly roadmaps</li>
-                                                    <li>Maintaining around 60 internal Laravel packages</li>
-                                                    <li>Coding for clients (REST API, integration with external services etc.)</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-                    <div class="pt-16 pb-12 sm:pb-4 lg:pt-12">
-                        <div class="lg:px-8">
-                            <div class="lg:max-w-4xl">
-                                <div class="mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:px-0">
-                                    <h1 class="text-2xl font-bold leading-7 text-zinc-900">Skills</h1>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="divide-y divide-zinc-100 sm:mt-4 lg:mt-8 lg:border-t lg:border-zinc-100">
-                            <article aria-labelledby="codedor-title" class="py-10 sm:py-12">
-                                <div class="lg:px-8">
-                                    <div class="lg:max-w-4xl">
-                                        <Skills />
-                                    </div>
-                                </div>
-                            </article>
-                            <article aria-labelledby="codedor-title" class="py-10 sm:py-12">
-                                <div class="lg:px-8">
-                                    <div class="lg:max-w-4xl">
-                                        <div class="mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:px-0 text-zinc-500 flex flex-wrap gap-4">
-                                            <span class="">MeiliSearch</span>
-                                            <span class="">Algolia</span>
-                                            <span class="">Docker</span>
-                                            <span class="">Git</span>
-                                            <span class="">Linux</span>
-                                            <span class="">REST</span>
-                                            <span class="">Jira/Confluence</span>
-                                            <span class="">Office 365</span>
-                                            <span class="">Asana</span>
-                                            <span class="">TablePlus</span>
-                                            <span class="">VS Code</span>
-                                            <span class="">Gitlab</span>
-                                            <span class="">Github</span>
-                                            <span class="">Debugging</span>
-                                            <span class="">Communication</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-                    <div class="pt-16 pb-12 sm:pb-4 lg:pt-12">
-                        <div class="lg:px-8">
-                            <div class="lg:max-w-4xl">
-                                <div class="mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:px-0">
-                                    <h1 class="text-2xl font-bold leading-7 text-zinc-900">Languages</h1>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="sm:mt-4 lg:mt-8 lg:border-t lg:border-zinc-100">
-                            <article aria-labelledby="dutch-title" class="py-2">
-                                <div class="lg:px-8">
-                                    <div class="lg:max-w-4xl">
-                                        <div class="mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:px-0">
-                                            <div class="flex flex-col items-start">
-                                                <h2 id="dutch-title" class="mt-2 text-lg font-bold text-zinc-900">
-                                                    Dutch
-                                                </h2>
-                                                <p class="mt-1 text-base leading-7 text-zinc-700">
-                                                    My mothertongue
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <article aria-labelledby="english-title" class="py-2">
-                                <div class="lg:px-8">
-                                    <div class="lg:max-w-4xl">
-                                        <div class="mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:px-0">
-                                            <div class="flex flex-col items-start">
-                                                <h2 id="english-title" class="mt-2 text-lg font-bold text-zinc-900">
-                                                    English
-                                                </h2>
-                                                <p class="mt-1 text-base leading-7 text-zinc-700">
-                                                    Advanced speaker and writer
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <article aria-labelledby="latvian-title" class="py-2">
-                                <div class="lg:px-8">
-                                    <div class="lg:max-w-4xl">
-                                        <div class="mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:px-0">
-                                            <div class="flex flex-col items-start">
-                                                <h2 id="latvian-title" class="mt-2 text-lg font-bold text-zinc-900">
-                                                    Latvian
-                                                </h2>
-                                                <p class="mt-1 text-base leading-7 text-zinc-700">
-                                                    Basic
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <article aria-labelledby="french-title" class="py-2">
-                                <div class="lg:px-8">
-                                    <div class="lg:max-w-4xl">
-                                        <div class="mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:px-0">
-                                            <div class="flex flex-col items-start">
-                                                <h2 id="french-title" class="mt-2 text-lg font-bold text-zinc-900">
-                                                    French
-                                                </h2>
-                                                <p class="mt-1 text-base leading-7 text-zinc-700">
-                                                    Basic speaker
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-                    <div class="pt-16 pb-12 sm:pb-4 lg:pt-12">
-                        <div class="lg:px-8">
-                            <div class="lg:max-w-4xl">
-                                <div class="mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:px-0">
-                                    <h1 class="text-2xl font-bold leading-7 text-zinc-900">Education</h1>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="divide-y divide-zinc-100 sm:mt-4 lg:mt-8 lg:border-t lg:border-zinc-100">
-                            <article aria-labelledby="itm-title" class="py-10 sm:py-12">
-                                <div class="lg:px-8">
-                                    <div class="lg:max-w-4xl">
-                                        <div class="mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:px-0">
-                                            <div class="flex flex-col items-start">
-                                                <h2 id="itm-title" class="mt-2 text-lg font-bold text-zinc-900">
-                                                    Postgraduate in IT-management @ HOGENT, Ghent, Belgium
-                                                </h2>
-                                                <span class="order-first font-mono text-sm leading-7 text-zinc-500">
-                                                        2010-2012
-                                                    </span>
-                                                <p class="mt-1 text-base leading-7 text-zinc-700">
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <article aria-labelledby="it-title" class="py-10 sm:py-12">
-                                <div class="lg:px-8">
-                                    <div class="lg:max-w-4xl">
-                                        <div class="mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:px-0">
-                                            <div class="flex flex-col items-start">
-                                                <h2 id="it-title" class="mt-2 text-lg font-bold text-zinc-900">
-                                                    Professional bachelor in Applied Information Technology @ HOGENT, Ghent, Belgium
-                                                </h2>
-                                                <span class="order-first font-mono text-sm leading-7 text-zinc-500">
-                                                        2006-2010
-                                                    </span>
-                                                <p class="mt-1 text-base leading-7 text-zinc-700">
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
+<BaseLayout title="Resume">
+    <Main type="page" class="print:pt-6 print:mb-0">
+        <div class="max-w-3xl mx-auto">
+            <!-- Header -->
+            <div class="text-center sm:text-left print:text-left">
+                <div class="print:flex print:items-baseline print:justify-between">
+                    <h1 class="text-4xl font-extrabold text-indigo-600 print:text-2xl">
+                        Jyrki De Neve
+                    </h1>
+                    <div class="mt-3 flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-1 text-sm text-zinc-500 print:text-xs print:mt-0">
+                        <a href="mailto:me@jyrki.dev" class="hover:text-indigo-600">me@jyrki.dev</a>
+                        <span class="text-zinc-300">|</span>
+                        <a href="https://jyrki.dev" class="hover:text-indigo-600">jyrki.dev</a>
+                        <span class="text-zinc-300">|</span>
+                        <a href="https://www.linkedin.com/in/jyrki-de-neve" class="hover:text-indigo-600">LinkedIn</a>
+                        <span class="text-zinc-300">|</span>
+                        <a href="https://twitter.com/jyrkidn" class="hover:text-indigo-600">@jyrkidn</a>
                     </div>
                 </div>
-            </main>
-            <div class="fixed inset-x-0 bottom-0 z-10 lg:left-112 xl:left-120"></div>
+                <p class="mt-4 text-base leading-7 text-zinc-700 print:text-xs print:leading-5 print:mt-3">
+                    Senior Laravel backend engineer with 10+ years of experience building and maintaining production web applications. Focused on clean architecture, reusable internal tooling, automated testing, and long-term system evolution. Experienced in modernizing legacy platforms and designing scalable backend foundations.
+                </p>
+            </div>
+
+            <hr class="my-8 border-zinc-200 print:my-4" />
+
+            <!-- Work Experience -->
+            <section>
+                <h2 class="text-2xl font-bold text-indigo-600 print:text-base">Work Experience</h2>
+                <div class="mt-6 print:mt-3">
+                    <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 print:flex-row print:items-baseline print:justify-between print:gap-1">
+                        <h3 class="text-lg font-bold text-zinc-900 print:text-sm">
+                            <a href="https://www.whoownsthezebra.be/" target="_blank" class="hover:text-indigo-600">
+                                Senior Backend Developer @ Who Owns The Zebra
+                            </a>
+                        </h3>
+                        <span class="font-mono text-sm text-zinc-500 shrink-0 print:text-xs">November 2012 - Present</span>
+                    </div>
+                    <p class="text-sm text-zinc-500 print:text-xs">Ghent, Belgium (Remote from Latvia)</p>
+                    <p class="mt-2 text-base leading-7 text-zinc-700 print:text-xs print:leading-5 print:mt-1">
+                        Product-focused development of custom Laravel applications used by long-term clients across multiple industries.
+                    </p>
+
+                    <h4 class="text-base mt-4 font-bold text-zinc-900 print:text-xs print:mt-3">
+                        Architecture & Platform
+                    </h4>
+                    <ul class="mt-2 ml-4 list-disc text-base leading-7 text-zinc-500 print:text-xs print:leading-4 print:mt-1">
+                        <li>Migrated legacy CakePHP monolith to Laravel, modernizing architecture and improving maintainability and testability</li>
+                        <li>Designed modular backend architecture reused across multiple production applications</li>
+                        <li>Designed and maintained ~60 reusable internal Laravel packages forming the shared foundation across applications (auth, CMS modules, billing, integrations, search, etc.)</li>
+                        <li>Standardized automated testing using PHPUnit and PestPHP</li>
+                    </ul>
+
+                    <h4 class="text-base mt-4 font-bold text-zinc-900 print:text-xs print:mt-3">
+                        Product Development
+                    </h4>
+                    <ul class="mt-2 ml-4 list-disc text-base leading-7 text-zinc-500 print:text-xs print:leading-4 print:mt-1">
+                        <li>Built and maintained multiple long-running production Laravel applications</li>
+                        <li>Designed REST APIs and integrated external services (payment providers, CRMs, ERP systems)</li>
+                        <li>Implemented background job processing and queue systems</li>
+                        <li>Integrated search solutions (MeiliSearch, Algolia)</li>
+                        <li>Optimized MySQL queries and application performance</li>
+                        <li>Contributed to feature design and technical decision-making in collaboration with stakeholders</li>
+                    </ul>
+
+                    <h4 class="text-base mt-4 font-bold text-zinc-900 print:text-xs print:mt-3">
+                        Engineering Practices
+                    </h4>
+                    <ul class="mt-2 ml-4 list-disc text-base leading-7 text-zinc-500 print:text-xs print:leading-4 print:mt-1">
+                        <li>Introduced Docker-based development and production environments</li>
+                        <li>Improved CI/CD and deployment workflows</li>
+                        <li>Implemented production monitoring and error tracking (Sentry)</li>
+                        <li>Contributed to Vue.js-based frontend integrations where needed</li>
+                    </ul>
+                </div>
+            </section>
+
+            <hr class="my-8 border-zinc-200 print:my-4" />
+
+            <!-- Skills -->
+            <section>
+                <h2 class="text-2xl font-bold text-indigo-600 print:text-base">Skills</h2>
+                <div class="mt-6 print:mt-3">
+                    <ul class="mt-2 ml-4 list-disc text-base leading-7 text-zinc-500 print:text-xs print:leading-4 print:mt-1">
+                        <li><span class="font-semibold">Backend:</span> PHP, Laravel, REST APIs, MySQL</li>
+                        <li><span class="font-semibold">Testing:</span> PHPUnit, PestPHP</li>
+                        <li><span class="font-semibold">Frontend:</span> Vue.js, JavaScript</li>
+                        <li><span class="font-semibold">Infrastructure & DevOps:</span> Docker, Git, Linux, CI/CD</li>
+                        <li><span class="font-semibold">Search & Integrations:</span> MeiliSearch, Algolia, third-party API integrations</li>
+                    </ul>
+                </div>
+            </section>
+
+            <hr class="my-8 border-zinc-200 print:my-4" />
+
+            <!-- Languages -->
+            <section>
+                <h2 class="text-2xl font-bold text-indigo-600 print:text-base">Languages</h2>
+                <div class="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-4 print:mt-3 print:gap-2 print:grid-cols-4">
+                    <div>
+                        <p class="font-bold text-zinc-900 print:text-xs">Dutch</p>
+                        <p class="text-sm text-zinc-500 print:text-xs">Native</p>
+                    </div>
+                    <div>
+                        <p class="font-bold text-zinc-900 print:text-xs">English</p>
+                        <p class="text-sm text-zinc-500 print:text-xs">Advanced</p>
+                    </div>
+                    <div>
+                        <p class="font-bold text-zinc-900 print:text-xs">Latvian</p>
+                        <p class="text-sm text-zinc-500 print:text-xs">Basic</p>
+                    </div>
+                    <div>
+                        <p class="font-bold text-zinc-900 print:text-xs">French</p>
+                        <p class="text-sm text-zinc-500 print:text-xs">Basic</p>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="my-8 border-zinc-200 print:my-4" />
+
+            <!-- Education -->
+            <section>
+                <h2 class="text-2xl font-bold text-indigo-600 print:text-base">Education</h2>
+                <div class="mt-6 space-y-6 print:mt-3 print:space-y-1">
+                    <div>
+                        <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 print:block">
+                            <h3 class="text-lg font-bold text-zinc-900 print:text-sm print:inline">
+                                Postgraduate in IT-management
+                            </h3>
+                            <span class="font-mono text-sm text-zinc-500 shrink-0 print:text-xs print:hidden">2010 - 2012</span>
+                            <span class="hidden print:inline text-sm text-zinc-500 print:text-xs"> – HOGENT (2012)</span>
+                        </div>
+                        <p class="text-sm text-zinc-500 print:text-xs print:hidden">HOGENT, Ghent, Belgium</p>
+                    </div>
+                    <div>
+                        <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 print:block">
+                            <h3 class="text-lg font-bold text-zinc-900 print:text-sm print:inline">
+                                Bachelor in Applied IT
+                            </h3>
+                            <span class="font-mono text-sm text-zinc-500 shrink-0 print:text-xs print:hidden">2006 - 2010</span>
+                            <span class="hidden print:inline text-sm text-zinc-500 print:text-xs"> – HOGENT (2010)</span>
+                        </div>
+                        <p class="text-sm text-zinc-500 print:text-xs print:hidden">HOGENT, Ghent, Belgium</p>
+                    </div>
+                </div>
+            </section>
         </div>
-    </body>
-</html>
+    </Main>
+</BaseLayout>
+
+<style>
+    @media print {
+        /* Reset the outer indigo background and inner container styling */
+        :global(html) {
+            background: white !important;
+        }
+        :global(body > div) {
+            margin: 0 !important;
+            border-radius: 0 !important;
+            padding-top: 0 !important;
+        }
+        /* Hide navigation and footer */
+        :global(nav),
+        :global(footer) {
+            display: none !important;
+        }
+        /* Optimize for A4 */
+        @page {
+            size: A4;
+            margin: 12mm 15mm;
+        }
+    }
+</style>
