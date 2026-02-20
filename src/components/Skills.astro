@@ -1,58 +1,41 @@
 ---
-const skills = [
+const categories = [
     {
-        name: 'Laravel',
-        percentage: 'w-[90%]',
+        name: 'Backend',
+        skills: ['PHP', 'Laravel', 'REST APIs', 'MySQL'],
     },
     {
-        name: 'PHP',
-        percentage: 'w-[60%]',
+        name: 'Testing',
+        skills: ['PestPHP', 'PHPUnit'],
     },
     {
-        name: 'Testing (PestPHP & PHPUnit)',
-        percentage: 'w-[90%]',
+        name: 'Frontend',
+        skills: ['JavaScript', 'Vue.js', 'CSS', 'Tailwind'],
     },
     {
-        name: 'Javascript',
-        percentage: 'w-[75%]',
+        name: 'Infrastructure & DevOps',
+        skills: ['Docker', 'Git', 'Linux', 'CI/CD'],
     },
     {
-        name: 'Vue',
-        percentage: 'w-[70%]',
+        name: 'Search & Integrations',
+        skills: ['MeiliSearch', 'Algolia', 'Third-party APIs'],
     },
     {
-        name: 'CSS',
-        percentage: 'w-[70%]',
-    },
-    {
-        name: 'MySQL',
-        percentage: 'w-[80%]',
-    },
-    {
-        name: 'Docker',
-        percentage: 'w-[30%]',
-    },
-    {
-        name: 'Git',
-        percentage: 'w-[80%]',
-    },
-    {
-        name: 'Claude Code',
-        percentage: 'w-[75%]',
+        name: 'AI Tooling',
+        skills: ['Claude Code', 'ChatGPT'],
     },
 ]
 ---
 
-<div class="mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:px-0 print:grid print:grid-cols-2 print:gap-x-6 print:gap-y-1 print:px-0">
-    { skills.map((skill) => (
-        <div class="mb-4 print:mb-0">
-            <span class="text-sm leading-7 text-zinc-500 print:text-xs print:leading-5">{skill.name}</span>
-            <div class="flex flex-auto rounded-full bg-zinc-200 print:h-1.5">
-                <div class:list={[
-                    'h-2 print:h-1.5 flex-none rounded-l-full rounded-r-[1px] bg-indigo-600',
-                    skill.percentage
-                ]}></div>
-            </div>
+<div class="mx-auto md:max-w-2xl grid grid-cols-1 sm:grid-cols-2 gap-8">
+    {categories.map((category) => (
+        <div>
+            <h3 class="text-lg font-bold text-indigo-600">{category.name}</h3>
+            <ul class="mt-3 flex flex-wrap gap-2">
+                {category.skills.map((skill) => (
+                    <li class="px-3 py-1 text-sm text-zinc-700 bg-zinc-100 rounded-full">{skill}</li>
+                ))}
+            </ul>
         </div>
-    )) }
+    ))}
 </div>

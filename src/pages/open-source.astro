@@ -5,24 +5,29 @@ import Main from '../components/Main.astro';
 
 const packages = [
 	{
-		name: 'codedor/laravel-locale-collection',
+		name: 'wotz/laravel-locale-collection',
 		description: 'Locale Collection package for Laravel',
-		url: 'https://packagist.org/packages/codedor/laravel-locale-collection',
+		url: 'https://packagist.org/packages/wotz/laravel-locale-collection',
 	},
 	{
-		name: 'codedor/laravel-translatable-routes',
+		name: 'wotz/laravel-translatable-routes',
 		description: 'Package for Laravel to make routes translatable',
-		url: 'https://packagist.org/packages/codedor/laravel-translatable-routes',
+		url: 'https://packagist.org/packages/wotz/laravel-translatable-routes',
 	},
 	{
-		name: 'codedor/filament-translatable-tabs',
+		name: 'wotz/filament-translatable-tabs',
 		description: 'Adds a tab per locale and adds integration for spatie/laravel-translatable in Filament',
-		url: 'https://packagist.org/packages/codedor/filament-translatable-tabs',
+		url: 'https://packagist.org/packages/wotz/filament-translatable-tabs',
 	},
 	{
-		name: 'codedor/filament-redirects',
+		name: 'wotz/filament-redirects',
 		description: 'This package allows you to add redirects via Filament manually or with an import',
-		url: 'https://packagist.org/packages/codedor/filament-redirects',
+		url: 'https://packagist.org/packages/wotz/filament-redirects',
+	},
+	{
+		name: 'wotz/filament-table-filter-presets',
+		description: 'Save and load named filter presets per user for Filament tables',
+		url: 'https://packagist.org/packages/wotz/filament-table-filter-presets',
 	},
 ]
 ---
@@ -37,9 +42,9 @@ const packages = [
 				{packages.map((item) => (
 					<div class="relative overflow-hidden rounded-lg bg-white px-4 pt-5 pb-12 shadow-sm sm:px-6 sm:pt-6">
 						<dt>
-							<p class="truncate text-normal font-medium text-gray-900">{item.name}</p>
+							<p class="text-normal font-medium text-gray-900 break-words">{item.name}</p>
 						</dt>
-						<dd class="flex items-baseline pb-6 sm:pb-7">
+						<dd class="flex items-baseline pb-6 sm:pb-7 mt-2">
 							<p class="text-xs text-gray-500">{item.description}</p>
 							<div class="absolute inset-x-0 bottom-0 bg-gray-50 px-4 py-4 sm:px-6">
 								<div class="text-sm">
