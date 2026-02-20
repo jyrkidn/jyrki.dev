@@ -16,7 +16,7 @@ interface Props {
 const { title, description } = Astro.props;
 ---
 
-<html lang="en" transition:animate="fade" class="h-full bg-indigo-600 text-base antialiased">
+<html lang="en" transition:animate="fade" class="h-full bg-indigo-600 text-base antialiased overflow-y-scroll">
 	<head>
 		<MainHead title={title} description={description} />
 		<ViewTransitions />

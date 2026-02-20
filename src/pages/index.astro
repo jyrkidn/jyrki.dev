@@ -12,9 +12,56 @@ import Main from '../components/Main.astro';
 			/>
 		</div>
 		<div>
-			<p>
-				A Belgian senior Laravel developer based in Latvia.
-			</p>
+			<p><span id="typed-tagline"></span><span id="cursor" class="typing-cursor">|</span></p>
 		</div>
 	</Main>
 </BaseLayout>
+
+<style>
+	.typing-cursor {
+		display: inline;
+		animation: blink 0.7s step-end infinite;
+		font-weight: 100;
+	}
+
+	@keyframes blink {
+		50% { opacity: 0; }
+	}
+</style>
+
+<script>
+	function typeText(element: HTMLElement, text: string, speed: number): Promise<void> {
+		return new Promise((resolve) => {
+			let i = 0;
+			function type() {
+				if (i < text.length) {
+					element.textContent += text.charAt(i);
+					i++;
+					setTimeout(type, speed);
+				} else {
+					resolve();
+				}
+			}
+			type();
+		});
+	}
+
+	async function startTyping() {
+		const tagline = document.getElementById('typed-tagline');
+		const cursor = document.getElementById('cursor');
+
+		if (!tagline || !cursor) return;
+
+		tagline.textContent = '';
+
+		await typeText(tagline, 'A Belgian senior Laravel developer based in Latvia.', 30);
+
+		setTimeout(() => {
+			cursor.style.animation = 'none';
+			cursor.style.opacity = '0';
+			cursor.style.transition = 'opacity 0.5s';
+		}, 2000);
+	}
+
+	document.addEventListener('astro:page-load', startTyping);
+</script>
