@@ -15,6 +15,8 @@ title: 'Current setup'
 - To track my time I use [Toggl](track.toggl.com/)
 - To manage databases I use [TablePlus](https://tableplus.com/)
 - For AI, there is Claude Code and ChatGPT, and Claude Design redesigned this website
+- [Cloudflare](https://www.cloudflare.com/) to manage my DNS and host my static websites
+- [Laravel Cloud](https://cloud.laravel.com) to host my Laravel/PHP websites
 
 ## MacOS
 
