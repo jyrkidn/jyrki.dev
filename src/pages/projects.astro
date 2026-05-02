@@ -1,0 +1,120 @@
+---
+import { Image, type ImageMetadata } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Main from '../components/Main.astro';
+
+import jyrkiShot from '../assets/projects/jyrki-dev.png';
+import listsShot from '../assets/projects/lists.png';
+import eurabowebShot from '../assets/projects/eurabo.png';
+import tvTrackerShot from '../assets/projects/tv-tracker.png';
+
+interface Project {
+	name: string;
+	description?: string;
+	stack: string[];
+	integrations?: string[];
+	url?: string;
+	image?: ImageMetadata;
+}
+
+const projects: Project[] = [
+	{
+		name: 'jyrki.dev',
+		description: 'My personal site — portfolio, blog, and notes.',
+		stack: ['Astro', 'Tailwind CSS'],
+		image: jyrkiShot,
+		url: 'https://jyrki.dev',
+	},
+	{
+		name: 'Lists',
+		description: 'Lists PWA with realtime sync across devices and drag-and-drop reordering.',
+		stack: ['Nuxt', 'Vue', 'Tailwind'],
+		integrations: ['Firebase'],
+		image: listsShot,
+	},
+	{
+		name: 'Eurabo Web',
+		description: 'Laravel + Filament platform with multilingual content, drafts, and integrated payments.',
+		stack: ['Laravel', 'Filament', 'Livewire', 'Tailwind'],
+		integrations: ['Algolia', 'Mollie', 'Sentry', 'Business Central', 'Zendesk'],
+		image: eurabowebShot,
+		url: 'https://www.eurabo.be/nl'
+	},
+	{
+		name: 'TV Tracker',
+		description: 'Personal TV show tracker — imports TV Time exports and follows watched episodes.',
+		stack: ['Laravel', 'Vue', 'Inertia', 'Tailwind', 'TypeScript'],
+		integrations: ['The Movie Database (TMDB)'],
+		image: tvTrackerShot,
+	},
+];
+---
+
+<BaseLayout title="Projects | Jyrki De Neve" description="Some side projects of mine">
+	<Main type="page">
+		<Hero title="Projects" />
+		<div class="mt-16 p-4">
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+				{projects.map((project) => (
+					<article class="overflow-hidden rounded-lg bg-white shadow-sm flex flex-col">
+						<div class="aspect-video overflow-hidden bg-paper border-b border-indigo-100">
+							{project.image ? (
+								<Image
+									src={project.image}
+									alt={project.name}
+									class="w-full h-full object-cover"
+								/>
+							) : (
+								<div class="w-full h-full flex items-center justify-center text-indigo-300 text-[10px] uppercase tracking-[0.2em]">
+									No screenshot
+								</div>
+							)}
+						</div>
+						<div class="p-6 flex flex-col gap-3 flex-1">
+							<h2 class="text-sm font-bold text-indigo-600">{project.name}</h2>
+							{project.description && (
+								<p class="text-xs text-gray-600">{project.description}</p>
+							)}
+							<div class="flex flex-col gap-2">
+								<div class="flex flex-wrap gap-1.5">
+									{project.stack.map((tech) => (
+										<span class="text-[10px] tracking-[0.08em] uppercase border border-indigo-200 px-2 py-1 text-indigo-600/80">
+											{tech}
+										</span>
+									))}
+								</div>
+								{project.integrations && project.integrations.length > 0 && (
+									<div class="flex flex-wrap gap-1.5">
+										{project.integrations.map((tool) => (
+											<span class="text-[10px] tracking-[0.08em] uppercase border border-gray-300 px-2 py-1 text-gray-500">
+												{tool}
+											</span>
+										))}
+									</div>
+								)}
+							</div>
+							{project.url && (
+								<a
+									href={project.url}
+									target="_blank"
+									rel="noopener"
+									class="mt-auto inline-flex items-center gap-1 text-xs font-medium text-indigo-600 hover:text-indigo-500 underline underline-offset-[3px]"
+								>
+									Visit →
+								</a>
+							)}
+						</div>
+					</article>
+				))}
+
+				<article class="overflow-hidden rounded-lg bg-white shadow-sm p-6 flex flex-col items-center justify-center gap-3 text-center">
+					<h2 class="text-sm font-bold text-indigo-600">And many more</h2>
+					<p class="text-xs text-gray-600">
+						I'm happy to tell you about
+					</p>
+				</article>
+			</div>
+		</div>
+	</Main>
+</BaseLayout>

@@ -2,6 +2,12 @@
 
 @plugin "@tailwindcss/typography";
 
+@theme {
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+    --color-paper: #faf9f4;
+    --color-ink: #0b0b14;
+}
+
 @media (min-width: 1280px) {
     .xl\:left-120 {
         left: 25rem;

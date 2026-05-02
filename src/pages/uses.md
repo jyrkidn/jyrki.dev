@@ -14,7 +14,7 @@ title: 'Current setup'
 - On my Mac I use [Arc](https://arc.net/) as browser with the [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm) extension.
 - To track my time I use [Toggl](track.toggl.com/)
 - To manage databases I use [TablePlus](https://tableplus.com/)
-- For AI, there is Claude Code and ChatGPT
+- For AI, there is Claude Code and ChatGPT, and Claude Design redesigned this website
 
 ## MacOS
 

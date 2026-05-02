@@ -1,0 +1,246 @@
+---
+interface Props {
+	title: string;
+	tagline?: string;
+}
+
+const { title, tagline } = Astro.props;
+---
+
+<canvas
+	id="hero-ascii"
+	class="pointer-events-none fixed inset-0 w-full h-full -z-10"
+	aria-hidden="true"
+></canvas>
+
+<div class="hero-wrap relative w-full flex flex-col items-center">
+	<div class="relative z-10 w-full text-center px-4" style="min-height: 1.2em;">
+		<h1
+			id="hero-glitch-red"
+			aria-hidden="true"
+			class="hero-glitch-layer pointer-events-none absolute inset-0 text-4xl md:text-6xl font-extrabold leading-tight tracking-[-0.02em]"
+			style="color:#ff3355; mix-blend-mode:multiply; opacity:0; transform: translate(-3px, 1px);"
+		>{title}</h1>
+		<h1
+			id="hero-glitch-cyan"
+			aria-hidden="true"
+			class="hero-glitch-layer pointer-events-none absolute inset-0 text-4xl md:text-6xl font-extrabold leading-tight tracking-[-0.02em]"
+			style="color:#00d0ff; mix-blend-mode:multiply; opacity:0; transform: translate(3px, -1px);"
+		>{title}</h1>
+		<h1
+			id="hero-title"
+			class="relative text-4xl md:text-6xl font-extrabold text-indigo-600 leading-tight tracking-[-0.02em]"
+		>{title}</h1>
+	</div>
+
+	<div class="relative z-10 mt-8 inline-flex items-center gap-3 px-4 py-2 bg-paper/80 text-sm">
+		<span
+			class="hero-pulse inline-block w-2 h-2 rounded-full bg-indigo-600"
+			aria-hidden="true"
+		></span>
+		<span>{tagline ?? 'Senior Laravel developer'}</span>
+		<span class="opacity-40">│</span>
+		<span>10+ years experience</span>
+	</div>
+
+</div>
+
+<style>
+	.hero-wrap {
+		min-height: min(70vh, 560px);
+		justify-content: center;
+	}
+
+	.hero-pulse {
+		animation: hero-pulse 1.6s ease-in-out infinite;
+	}
+
+	@keyframes hero-pulse {
+		0%, 100% { transform: scale(1); opacity: 1; }
+		50% { transform: scale(1.6); opacity: 0.4; }
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.hero-pulse { animation: none; }
+		#hero-ascii { display: none; }
+	}
+</style>
+
+<script>
+	type Cell = { c: string; a: number };
+
+	const GLYPHS = '01{}[]<>/\\|-+=*.·•◦▪▫◇◈';
+	const COLS = 80;
+	const ROWS = 46;
+	const INDIGO_RGB = '79, 70, 255';
+
+	function initAscii() {
+		const canvas = document.getElementById('hero-ascii') as HTMLCanvasElement | null;
+		if (!canvas) return () => {};
+
+		const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		if (reduced) return () => {};
+
+		const ctx = canvas.getContext('2d');
+		if (!ctx) return () => {};
+
+		let cells: Cell[] = [];
+		let W = 0, H = 0, cw = 0, ch = 0;
+		let raf = 0;
+		let t0 = performance.now();
+		let running = true;
+
+		const resize = () => {
+			const rect = canvas.getBoundingClientRect();
+			const dpr = window.devicePixelRatio || 1;
+			W = Math.max(1, Math.floor(rect.width));
+			H = Math.max(1, Math.floor(rect.height));
+			canvas.width = W * dpr;
+			canvas.height = H * dpr;
+			ctx.setTransform(1, 0, 0, 1, 0, 0);
+			ctx.scale(dpr, dpr);
+			cw = W / COLS;
+			ch = H / ROWS;
+			cells = Array.from({ length: COLS * ROWS }, () => ({
+				c: GLYPHS[Math.floor(Math.random() * GLYPHS.length)],
+				a: Math.random() * 0.18,
+			}));
+		};
+
+		const tick = (t: number) => {
+			if (!running) return;
+			const dt = (t - t0) / 1000;
+			ctx.clearRect(0, 0, W, H);
+			ctx.font = "12px 'JetBrains Mono', ui-monospace, monospace";
+			for (let y = 0; y < ROWS; y++) {
+				for (let x = 0; x < COLS; x++) {
+					const i = y * COLS + x;
+					const c = cells[i];
+					const dx = x / COLS - 0.5;
+					const dy = y / ROWS - 0.5;
+					const d = Math.sqrt(dx * dx + dy * dy);
+					const pulse = 0.5 + 0.5 * Math.sin(dt * 0.55 - d * 7);
+					const alpha = c.a * (0.4 + pulse * 0.9);
+					ctx.fillStyle = `rgba(${INDIGO_RGB}, ${alpha.toFixed(3)})`;
+					ctx.fillText(c.c, x * cw + 2, y * ch + 14);
+					if (Math.random() < 0.0012) {
+						c.c = GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
+						c.a = Math.random() * 0.22;
+					}
+				}
+			}
+			raf = requestAnimationFrame(tick);
+		};
+
+		resize();
+		raf = requestAnimationFrame(tick);
+		window.addEventListener('resize', resize);
+
+		const onVis = () => {
+			if (document.hidden) {
+				running = false;
+				cancelAnimationFrame(raf);
+			} else if (!running) {
+				running = true;
+				t0 = performance.now();
+				raf = requestAnimationFrame(tick);
+			}
+		};
+		document.addEventListener('visibilitychange', onVis);
+
+		return () => {
+			running = false;
+			cancelAnimationFrame(raf);
+			window.removeEventListener('resize', resize);
+			document.removeEventListener('visibilitychange', onVis);
+		};
+	}
+
+	const REAL_NAME_ATTR = 'data-real';
+	const SCRAM = '@#%&$01/\\<>*+=';
+
+	function initGlitch() {
+		const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		if (reduced) return () => {};
+
+		const title = document.getElementById('hero-title');
+		const red = document.getElementById('hero-glitch-red');
+		const cyan = document.getElementById('hero-glitch-cyan');
+		if (!title || !red || !cyan) return () => {};
+
+		const real = title.textContent ?? '';
+		title.setAttribute(REAL_NAME_ATTR, real);
+
+		let timers: number[] = [];
+		let stopped = false;
+
+		const setAll = (s: string) => {
+			title.textContent = s;
+			red.textContent = s;
+			cyan.textContent = s;
+		};
+
+		const showLayers = (on: boolean) => {
+			red.style.opacity = on ? '0.6' : '0';
+			cyan.style.opacity = on ? '0.6' : '0';
+		};
+
+		const runOnce = () => {
+			if (stopped || document.hidden) return schedule();
+			showLayers(true);
+			let step = 0;
+			const maxSteps = 8;
+			const iv = window.setInterval(() => {
+				step++;
+				if (step >= maxSteps) {
+					window.clearInterval(iv);
+					setAll(real);
+					window.setTimeout(() => showLayers(false), 120);
+					schedule();
+					return;
+				}
+				const s = real.split('').map((ch) => {
+					if (ch === ' ') return ch;
+					if (Math.random() < 0.55 - step * 0.06) {
+						return SCRAM[Math.floor(Math.random() * SCRAM.length)];
+					}
+					return ch;
+				}).join('');
+				setAll(s);
+			}, 55);
+			timers.push(iv);
+		};
+
+		const schedule = () => {
+			if (stopped) return;
+			const delay = 4200 + Math.random() * 3500;
+			const t = window.setTimeout(runOnce, delay);
+			timers.push(t);
+		};
+
+		schedule();
+
+		return () => {
+			stopped = true;
+			timers.forEach((t) => { window.clearTimeout(t); window.clearInterval(t); });
+			setAll(real);
+			showLayers(false);
+		};
+	}
+
+	let cleanupAscii: (() => void) | null = null;
+	let cleanupGlitch: (() => void) | null = null;
+
+	function boot() {
+		cleanupAscii?.();
+		cleanupGlitch?.();
+		cleanupAscii = initAscii();
+		cleanupGlitch = initGlitch();
+	}
+
+	document.addEventListener('astro:page-load', boot);
+	document.addEventListener('astro:before-swap', () => {
+		cleanupAscii?.(); cleanupAscii = null;
+		cleanupGlitch?.(); cleanupGlitch = null;
+	});
+</script>

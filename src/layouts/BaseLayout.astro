@@ -16,13 +16,13 @@ interface Props {
 const { title, description } = Astro.props;
 ---
 
-<html lang="en" transition:animate="fade" class="h-full bg-indigo-600 text-base antialiased overflow-y-scroll">
+<html lang="en" transition:animate="fade" class="h-full bg-paper text-base antialiased overflow-y-scroll">
 	<head>
 		<MainHead title={title} description={description} />
 		<ClientRouter />
 	</head>
 	<body class="flex min-h-full flex-col font-mono">
-		<div class="rounded-[1px] m-1 relative flex flex-col flex-auto bg-white pt-4">
+		<div class="relative flex flex-col flex-auto pt-4">
 			<Nav />
 			<slot />
 			<Footer />
