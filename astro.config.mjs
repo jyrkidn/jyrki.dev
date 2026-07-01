@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
-import inspectUrls from "@jsdevtools/rehype-url-inspector";
+import rehypeExternalLinks from "rehype-external-links";
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,15 +14,12 @@ export default defineConfig({
     },
     rehypePlugins: [
       [
-        inspectUrls,
+        rehypeExternalLinks,
         {
-          selectors: ["a[href]"],
-          inspectEach(url) {
-            url.node.properties.target = "_blank";
-          }
+          target: "_blank",
+          rel: ["noopener", "noreferrer"],
         }
       ]
-      // ...other markdown configuration options
     ],
   },
 });
