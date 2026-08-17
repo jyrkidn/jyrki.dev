@@ -8,6 +8,7 @@ import jyrkiShot from '../assets/projects/jyrki-dev.png';
 import listsShot from '../assets/projects/lists.png';
 import eurabowebShot from '../assets/projects/eurabo.png';
 import tvTrackerShot from '../assets/projects/tv-tracker.png';
+import crownJewelsShot from '../assets/projects/crown-jewels.png';
 
 interface Project {
 	name: string;
@@ -48,6 +49,13 @@ const projects: Project[] = [
 		integrations: ['The Movie Database (TMDB)'],
 		image: tvTrackerShot,
 	},
+	{
+		name: 'The Hunt for the Stolen Crown Jewels',
+		description: 'Browser remake of the 1996 Dutch detective game, chase the stolen crown jewels across 52 European cities. Offline-capable PWA, no frameworks, no external requests.',
+		stack: ['Vanilla JS', 'SVG', 'PWA'],
+		image: crownJewelsShot,
+		url: 'https://the-hunt-for-the-stolen-crown-jewels.jyrki.dev/',
+	}
 ];
 ---
 
